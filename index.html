@@ -1231,6 +1231,375 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   display:none;
 }
 .global-err.show{display:block}
+
+/* ============================================================================
+   v14 · 新增：搜索 / 私语列表 / 私语详情 / 他人主页 / 编辑资料
+   ============================================================================ */
+
+/* 通用 back-btn */
+.back-btn{
+  width:40px;height:40px;
+  background:none;border:none;
+  font-family:var(--serif);font-size:18px;
+  color:var(--gold);cursor:pointer;
+}
+
+/* ============== Search ============== */
+#search.page{
+  background:radial-gradient(ellipse at 50% 30%, #120A0A 0%, #050303 80%);
+  display:flex;flex-direction:column;
+}
+.search-header{
+  display:flex;align-items:center;gap:12px;
+  padding:24px 20px 16px;
+  border-bottom:1px solid rgba(201,169,97,.18);
+}
+.search-input{
+  flex:1;height:44px;
+  background:rgba(201,169,97,.04);
+  border:1px solid rgba(201,169,97,.3);
+  padding:0 16px;
+  font-family:var(--serif);font-size:17px;
+  color:var(--bone);letter-spacing:.5px;
+}
+.search-input::placeholder{
+  font-family:var(--cn);font-style:italic;font-size:14px;
+  color:rgba(201,169,97,.4);letter-spacing:4px;
+}
+.search-input:focus{outline:none;border-color:var(--gold)}
+.search-results{padding:0}
+.search-empty{
+  text-align:center;padding:120px 32px;
+}
+.search-empty-line{
+  width:56px;height:1px;margin:0 auto 24px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.search-empty-cn{
+  font-family:var(--cn);font-weight:300;font-size:14px;
+  color:var(--gold);letter-spacing:5px;opacity:.85;
+  padding-left:5px;
+}
+.search-empty-tip{
+  font-family:var(--serif);font-style:italic;font-size:12px;
+  color:var(--ash);margin-top:12px;letter-spacing:2px;
+}
+.search-row{
+  display:flex;gap:16px;
+  padding:18px 24px;
+  border-bottom:1px solid rgba(201,169,97,.08);
+  cursor:pointer;
+}
+.search-row .thumb{
+  width:72px;height:96px;
+  background:#0a0606;
+  border:1px solid rgba(201,169,97,.3);
+  flex-shrink:0;
+}
+.search-row .thumb img{
+  width:100%;height:100%;object-fit:cover;
+}
+.search-row .info{flex:1;min-width:0}
+.search-row .title{
+  font-family:var(--serif);font-weight:500;font-size:18px;
+  color:var(--bone);letter-spacing:.5px;
+  margin-bottom:6px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.search-row .by{
+  font-family:var(--serif);font-style:italic;font-size:11px;
+  color:rgba(201,169,97,.7);letter-spacing:1.5px;
+}
+.search-row .price{
+  margin-top:8px;
+  font-family:var(--serif);font-weight:500;font-size:22px;
+  color:var(--gold);letter-spacing:1px;
+}
+
+/* ============== 私语列表 ============== */
+#chats.page{background:var(--void)}
+.chats-list{padding:96px 0 80px}
+.chats-loading,.chats-empty{
+  text-align:center;padding:80px 32px;
+  font-family:var(--cn);font-weight:300;font-size:14px;
+  color:var(--ash);letter-spacing:5px;
+}
+.chats-empty .em-line{
+  width:56px;height:1px;margin:0 auto 24px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.chats-empty .em-cn{
+  font-size:16px;color:var(--gold);letter-spacing:6px;
+  padding-left:6px;opacity:.85;margin-bottom:12px;
+}
+.chats-empty .em-tip{
+  font-family:var(--serif);font-style:italic;font-size:12px;
+  letter-spacing:2px;
+}
+.chat-row{
+  display:flex;align-items:center;gap:16px;
+  padding:18px 24px;
+  border-bottom:1px solid rgba(201,169,97,.08);
+  cursor:pointer;
+}
+.chat-avatar{
+  width:52px;height:52px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#1A0F12,#050303);
+  border:1px solid rgba(201,169,97,.5);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:500;font-size:22px;
+  color:var(--gold);
+  flex-shrink:0;
+}
+.chat-row .info{flex:1;min-width:0}
+.chat-row .top{display:flex;align-items:center;justify-content:space-between}
+.chat-row .name{
+  font-family:var(--serif);font-weight:500;font-size:18px;
+  color:var(--bone);letter-spacing:.5px;
+}
+.chat-row .when{
+  font-family:var(--serif);font-style:italic;font-size:11px;
+  color:var(--shade);
+}
+.chat-row .last{
+  margin-top:6px;
+  font-family:var(--cn);font-weight:300;font-size:13px;
+  color:var(--ash);letter-spacing:.5px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.chat-row .dot{
+  width:8px;height:8px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 8px rgba(201,169,97,.7);
+  margin-left:12px;flex-shrink:0;
+}
+
+/* ============== 私语详情 ============== */
+#chat.page{background:var(--void);display:flex;flex-direction:column}
+.chat-header{
+  display:flex;align-items:center;gap:12px;
+  padding:24px 16px 16px;
+  border-bottom:1px solid rgba(201,169,97,.18);
+  background:rgba(0,0,0,.85);
+}
+.chat-title{
+  flex:1;text-align:center;
+  font-family:var(--serif);font-weight:500;font-size:20px;
+  color:var(--gold);letter-spacing:2px;
+  text-shadow:0 0 14px rgba(201,169,97,.4);
+}
+.chat-messages{padding:24px 20px;display:flex;flex-direction:column;gap:16px}
+.bubble{
+  max-width:72%;padding:14px 18px;
+  border:1px solid rgba(201,169,97,.2);
+  background:rgba(0,0,0,.7);
+}
+.bubble.me{
+  align-self:flex-end;
+  background:rgba(201,169,97,.12);
+  border-color:rgba(201,169,97,.55);
+  box-shadow:0 0 18px -6px rgba(201,169,97,.3);
+}
+.bubble .text{
+  font-family:var(--cn);font-weight:300;font-size:15px;
+  color:var(--bone);line-height:1.6;letter-spacing:1px;
+}
+.bubble .time{
+  margin-top:6px;
+  font-family:var(--serif);font-style:italic;font-size:10px;
+  color:var(--shade);letter-spacing:1px;
+}
+.chat-input-row{
+  display:flex;align-items:flex-end;gap:12px;
+  padding:12px 20px calc(12px + env(safe-area-inset-bottom,0));
+  background:rgba(0,0,0,.92);
+  border-top:1px solid rgba(201,169,97,.18);
+}
+.chat-input{
+  flex:1;height:48px;
+  background:rgba(201,169,97,.04);
+  border:1px solid rgba(201,169,97,.25);
+  padding:0 16px;
+  font-family:var(--cn);font-weight:300;font-size:15px;
+  color:var(--bone);letter-spacing:1px;
+}
+.chat-input::placeholder{color:rgba(201,169,97,.35);font-style:italic}
+.chat-input:focus{outline:none;border-color:var(--gold)}
+.chat-send{
+  width:56px;height:48px;
+  background:rgba(201,169,97,.06);
+  border:1px solid var(--gold);
+  font-family:var(--cn);font-weight:300;font-size:16px;
+  color:var(--gold);cursor:pointer;
+  box-shadow:0 0 18px -6px rgba(201,169,97,.4);
+}
+.chat-send:hover{background:var(--gold);color:var(--void)}
+
+/* ============== 他人主页 ============== */
+#user.page{background:var(--void)}
+.user-back{
+  position:absolute;top:0;left:0;right:0;z-index:30;
+  padding:24px 16px;background:rgba(0,0,0,.7);
+  backdrop-filter:blur(12px);
+}
+#user .scrollable{padding-top:0}
+.user-body{padding:80px 32px 80px;text-align:center}
+.user-tag{
+  font-family:var(--serif);font-style:italic;font-size:11px;
+  color:var(--gold);letter-spacing:5px;margin-bottom:12px;
+}
+.user-name{
+  font-family:var(--serif);font-weight:500;font-size:48px;
+  letter-spacing:4px;
+  background:linear-gradient(180deg,#FAF4E6 0%,#E8C879 30%,#C9A961 60%,#8C7536 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 0 24px rgba(201,169,97,.32));
+  line-height:1;
+}
+.user-handle{
+  font-family:var(--serif);font-style:italic;font-size:13px;
+  color:var(--ash);letter-spacing:2px;margin-top:8px;
+}
+.user-line{
+  width:56px;height:1px;margin:32px auto;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.user-bio{
+  font-family:var(--cn);font-weight:300;font-size:14px;
+  color:var(--ash);letter-spacing:2px;line-height:1.85;
+  font-style:italic;
+}
+.user-stats{
+  display:flex;justify-content:space-around;
+  padding:24px 0;margin:32px 0;
+  border-top:1px solid rgba(201,169,97,.2);
+  border-bottom:1px solid rgba(201,169,97,.2);
+}
+.user-stat .num{
+  font-family:var(--serif);font-weight:500;font-size:28px;
+  color:var(--gold);
+}
+.user-stat .lbl{
+  font-family:var(--serif);font-style:italic;font-size:9px;
+  color:var(--ash);letter-spacing:2px;margin-top:6px;
+}
+.user-actions{display:flex;gap:12px;margin-bottom:48px}
+.user-actions .btn{
+  flex:1;height:52px;
+  font-family:var(--cn);font-weight:300;font-size:15px;
+  letter-spacing:6px;padding-left:6px;
+  background:rgba(201,169,97,.06);
+  border:1px solid var(--gold);
+  color:var(--gold);cursor:pointer;
+  box-shadow:0 0 20px -6px rgba(201,169,97,.3);
+}
+.user-actions .btn.followed{background:rgba(201,169,97,.18)}
+.user-actions .btn.ghost{
+  background:none;
+  border-color:rgba(201,169,97,.3);
+  color:var(--ash);
+  box-shadow:none;
+}
+.user-pieces-title{
+  display:flex;align-items:center;gap:12px;
+  font-family:var(--cn);font-weight:300;font-size:15px;
+  color:var(--gold);letter-spacing:5px;
+  margin-bottom:20px;text-align:left;padding-left:5px;
+}
+.user-pieces-title .ln{
+  flex:1;height:1px;
+  background:linear-gradient(90deg,rgba(201,169,97,.5),transparent);
+}
+.user-piece{
+  display:flex;gap:16px;
+  padding:12px 0;cursor:pointer;
+  text-align:left;
+}
+.user-piece .thumb{
+  width:64px;height:84px;
+  background:#0a0606;border:1px solid rgba(201,169,97,.3);
+}
+.user-piece .thumb img{width:100%;height:100%;object-fit:cover}
+.user-piece .info{flex:1;min-width:0}
+.user-piece .ti{
+  font-family:var(--serif);font-weight:500;font-size:17px;
+  color:var(--bone);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  margin-bottom:6px;
+}
+.user-piece .pr{
+  font-family:var(--serif);font-weight:500;font-size:18px;
+  color:var(--gold);letter-spacing:1px;
+}
+
+/* ============== 编辑资料 ============== */
+#profile-edit.page{background:var(--void)}
+.pe-header{
+  display:flex;align-items:center;gap:12px;
+  padding:24px 20px 20px;
+  border-bottom:1px solid rgba(201,169,97,.18);
+}
+.pe-title{
+  flex:1;text-align:center;
+  font-family:var(--cn);font-weight:300;font-size:17px;
+  color:var(--gold);letter-spacing:6px;padding-left:6px;
+}
+.pe-save{
+  background:rgba(201,169,97,.08);
+  border:1px solid var(--gold);
+  font-family:var(--cn);font-weight:300;font-size:13px;
+  color:var(--gold);letter-spacing:3px;
+  padding:8px 14px;cursor:pointer;
+}
+.pe-body{padding:32px}
+.pe-avatar-row{
+  display:flex;justify-content:center;
+  margin-bottom:48px;
+}
+.pe-avatar{
+  width:104px;height:104px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#1A0F12,#050303);
+  border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;cursor:pointer;
+  background-size:cover;background-position:center;
+  box-shadow:0 0 32px -8px rgba(201,169,97,.4);
+}
+.pe-avatar.has-img .pe-avatar-letter{display:none}
+.pe-avatar-letter{
+  font-family:var(--serif);font-weight:500;font-size:48px;
+  color:rgba(201,169,97,.6);
+}
+.pe-avatar-cam{
+  position:absolute;bottom:0;right:0;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--gold);border:2px solid var(--void);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;
+}
+.pe-section{
+  font-family:var(--cn);font-weight:300;font-size:14px;
+  color:var(--gold);letter-spacing:5px;padding-left:5px;
+  margin-bottom:14px;
+}
+.pe-input{
+  width:100%;height:44px;
+  background:transparent;
+  border:none;border-bottom:1px solid rgba(201,169,97,.22);
+  font-family:var(--serif);font-size:22px;
+  color:var(--bone);letter-spacing:.5px;
+  margin-bottom:40px;
+}
+.pe-input:focus{outline:none;border-bottom-color:var(--gold)}
+.pe-textarea{
+  width:100%;min-height:120px;
+  background:transparent;resize:none;
+  border:none;border-bottom:1px solid rgba(201,169,97,.22);
+  font-family:var(--cn);font-weight:300;font-size:15px;
+  color:var(--bone);letter-spacing:1px;line-height:1.7;
+}
+.pe-textarea::placeholder{color:rgba(201,169,97,.35);font-style:italic}
+.pe-textarea:focus{outline:none;border-bottom-color:var(--gold)}
 </style>
 </head>
 <body>
@@ -1300,6 +1669,8 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
           <div class="header-mark">VELVET</div>
           <div class="header-est">N° 001</div>
           <div class="header-spacer"></div>
+          <button class="header-link" id="search-link">Search</button>
+          <button class="header-link" id="chats-link">Chat</button>
           <button class="header-link has-dot" id="notif-link">Notice</button>
           <button class="header-link" id="profile-link">Account</button>
         </div>
@@ -1411,14 +1782,98 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
             <div class="stat"><div class="v" id="prof-following">0</div><div class="l">FOLLOWING</div></div>
           </div>
           <div class="profile-actions">
-            <button class="edit" id="my-pieces-btn">VIEW MY PIECES</button>
-            <button class="out" id="logout-btn">SIGN OUT</button>
+            <button class="edit" id="my-pieces-btn">查 看 我 的 发 布</button>
+            <button class="edit" id="edit-profile-btn">编 辑 资 料</button>
+            <button class="out" id="logout-btn">退 出 登 录</button>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
+    <!-- ─── 搜索 ─── -->
+    <div id="search" class="page">
+      <div class="search-header">
+        <button class="back-btn" onclick="goPage('feed')">←</button>
+        <input type="text" id="search-input" class="search-input" placeholder="寻 找 一 件 好 物…">
+      </div>
+      <div class="scrollable">
+        <div id="search-results" class="search-results">
+          <div class="search-empty">
+            <div class="search-empty-line"></div>
+            <div class="search-empty-cn">懂  的  人 · 自  然  知  道  找  什  么</div>
+            <div class="search-empty-tip">试试  真丝  古董  夜里  ……</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── 私语列表 ─── -->
+    <div id="chats" class="page">
+      <div class="header">
+        <div class="header-row">
+          <div class="header-mark">VELVET</div>
+          <div class="header-est">私 语</div>
+          <div class="header-spacer"></div>
+          <button class="header-link" onclick="goPage('feed')">返回</button>
+        </div>
+        <div class="header-line"></div>
+      </div>
+      <div class="scrollable">
+        <div id="chats-list" class="chats-list">
+          <div class="chats-loading">— 收 集 私 语 中 —</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── 私语详情 ─── -->
+    <div id="chat" class="page">
+      <div class="chat-header">
+        <button class="back-btn" onclick="goPage('chats'); loadChats()">←</button>
+        <div class="chat-title" id="chat-title">私 语</div>
+      </div>
+      <div class="scrollable" id="chat-scroll">
+        <div id="chat-messages" class="chat-messages"></div>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" id="chat-input" class="chat-input" placeholder="说 一 句 …" maxlength="500">
+        <button class="chat-send" id="chat-send">寄</button>
+      </div>
+    </div>
+
+    <!-- ─── 他人主页 ─── -->
+    <div id="user" class="page">
+      <div class="user-back">
+        <button class="back-btn" onclick="goPage('feed')">←</button>
+      </div>
+      <div class="scrollable">
+        <div id="user-body"></div>
+      </div>
+    </div>
+
+    <!-- ─── 编辑资料 ─── -->
+    <div id="profile-edit" class="page">
+      <div class="pe-header">
+        <button class="back-btn" onclick="goPage('profile')">×</button>
+        <div class="pe-title">编  辑  资  料</div>
+        <button class="pe-save" id="pe-save">保 存</button>
+      </div>
+      <div class="scrollable">
+        <div class="pe-body">
+          <div class="pe-avatar-row">
+            <div class="pe-avatar" id="pe-avatar">
+              <div class="pe-avatar-letter">V</div>
+              <div class="pe-avatar-cam">📷</div>
+            </div>
+          </div>
+          <div class="pe-section">昵  称</div>
+          <input type="text" id="pe-nickname" class="pe-input" maxlength="32">
+          <div class="pe-section">简  介</div>
+          <textarea id="pe-bio" class="pe-textarea" placeholder="一两句话 · 懂的人自然知道" maxlength="500"></textarea>
+        </div>
+      </div>
+    </div>
+
+  </div>
   <div class="loading-overlay" id="loading-overlay">
     <div class="spinner"></div>
     <div class="loading-text" id="loading-text">LOADING</div>
@@ -1576,6 +2031,7 @@ async function doAuth() {
     goPage('feed');
     loadFeed();
     loadUnreadCount();
+    connectWS();
   } catch(e) {
     console.error('[velvet] auth failed', e);
     hideLoading();
@@ -1758,9 +2214,9 @@ function renderDetail(item) {
         <div class="item"><div class="num">${item.commentCount}</div><div class="lbl">NOTES</div></div>
       </div>
       ${item.tags && item.tags.length ? `<div class="detail-tags">${item.tags.map(t => `<div class="detail-tag">${escapeHtml(t)}</div>`).join('')}</div>` : ''}
-      <div class="detail-seller">
+      <div class="detail-seller" onclick="openUserProfile(${item.userId})" style="cursor:pointer">
         <div class="by">CURATED BY</div>
-        <div class="name">${escapeHtml(item.userNickname)}</div>
+        <div class="name" style="border-bottom:1px dotted rgba(201,169,97,.4);display:inline-block">${escapeHtml(item.userNickname)}</div>
       </div>
 
       <!-- 评论区 -->
@@ -2075,6 +2531,383 @@ function formatTime(iso) {
   return Math.floor(diff/86400) + ' DAYS';
 }
 
+// ============================================================================
+// v14 · 搜索 / 私语 / 他人主页 / 编辑资料 / WebSocket
+// ============================================================================
+
+// ─── 搜索 ─────────────────────────────────────
+let _searchDebounce;
+function onSearchInput(q) {
+  clearTimeout(_searchDebounce);
+  _searchDebounce = setTimeout(() => {
+    const query = q.trim();
+    if (!query) {
+      document.getElementById('search-results').innerHTML = `
+        <div class="search-empty">
+          <div class="search-empty-line"></div>
+          <div class="search-empty-cn">懂  的  人 · 自  然  知  道  找  什  么</div>
+          <div class="search-empty-tip">试试  真丝  古董  夜里  ……</div>
+        </div>`;
+      return;
+    }
+    doSearch(query);
+  }, 350);
+}
+async function doSearch(q) {
+  const list = document.getElementById('search-results');
+  list.innerHTML = '<div class="search-empty"><div class="search-empty-cn">寻 找 中…</div></div>';
+  try {
+    const data = await api(`/api/v1/search/public/moments?q=${encodeURIComponent(q)}&size=30`);
+    const items = data.content || [];
+    if (items.length === 0) {
+      list.innerHTML = `
+        <div class="search-empty">
+          <div class="search-empty-cn">— 此 物 尚 未 出 现 —</div>
+          <div class="search-empty-tip">换一个词 · 再试</div>
+        </div>`;
+      return;
+    }
+    list.innerHTML = items.map(m => {
+      const cover = (m.mediaUrls && m.mediaUrls.length)
+        ? m.mediaUrls[0]
+        : `https://picsum.photos/seed/velvet${m.id}/200/280`;
+      const price = m.hasItem && m.itemPriceCents
+        ? `<div class="price">¥ ${(m.itemPriceCents/100).toFixed(0)}</div>` : '';
+      return `<div class="search-row" onclick="goPage('detail');openDetail(${JSON.stringify(m).replace(/"/g,'&quot;')})">
+        <div class="thumb"><img src="${cover}" onerror="this.style.display='none'"></div>
+        <div class="info">
+          <div class="title">${escapeHtml(m.title || '无 题')}</div>
+          <div class="by">${escapeHtml(m.userNickname || '')}</div>
+          ${price}
+        </div>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    list.innerHTML = `<div class="search-empty"><div class="search-empty-cn">— 加 载 失 败 —</div><div class="search-empty-tip">${escapeHtml(e.message)}</div></div>`;
+  }
+}
+
+// ─── 私语 (chat) ─────────────────────────────
+state.currentChat = null; // {id, otherUserId, otherUserNickname}
+state.chatPollTimer = null;
+
+async function loadChats() {
+  const list = document.getElementById('chats-list');
+  list.innerHTML = '<div class="chats-loading">— 收 集 私 语 中 —</div>';
+  try {
+    const data = await api('/api/v1/chat/conversations?size=50');
+    const items = data.content || [];
+    if (items.length === 0) {
+      list.innerHTML = `
+        <div class="chats-empty">
+          <div class="em-line"></div>
+          <div class="em-cn">— 还 没 有 私 语 —</div>
+          <div class="em-tip">懂的人 · 自会来敲你的门</div>
+        </div>`;
+      return;
+    }
+    list.innerHTML = items.map(c => {
+      const initial = (c.otherUserNickname || '·').charAt(0);
+      const time = c.lastMessageAt ? formatTime(c.lastMessageAt) : '';
+      const last = c.lastMessageContent || '— 暂无消息 —';
+      const unread = c.unread > 0 ? '<div class="dot"></div>' : '';
+      const data = encodeURIComponent(JSON.stringify(c));
+      return `<div class="chat-row" onclick="openChat(decodeURIComponent('${data}'))">
+        <div class="chat-avatar">${escapeHtml(initial)}</div>
+        <div class="info">
+          <div class="top">
+            <div class="name">${escapeHtml(c.otherUserNickname || '匿名')}</div>
+            <div class="when">${escapeHtml(time)}</div>
+          </div>
+          <div class="last">${escapeHtml(last)}</div>
+        </div>
+        ${unread}
+      </div>`;
+    }).join('');
+  } catch(e) {
+    list.innerHTML = `<div class="chats-empty"><div class="em-cn">— 加 载 失 败 —</div><div class="em-tip">${escapeHtml(e.message)}</div></div>`;
+  }
+}
+
+function openChat(convJson) {
+  const conv = typeof convJson === 'string' ? JSON.parse(convJson) : convJson;
+  state.currentChat = conv;
+  document.getElementById('chat-title').textContent = conv.otherUserNickname || '私 语';
+  goPage('chat');
+  loadChatMessages(conv.id);
+  // 标记已读
+  api(`/api/v1/chat/conversations/${conv.id}/read`, {method: 'POST'}).catch(() => {});
+  // poll 每 4s（如果 WS 不可用）
+  if (state.chatPollTimer) clearInterval(state.chatPollTimer);
+  state.chatPollTimer = setInterval(() => loadChatMessages(conv.id, true), 4000);
+}
+
+function leaveChat() {
+  if (state.chatPollTimer) clearInterval(state.chatPollTimer);
+  state.chatPollTimer = null;
+  state.currentChat = null;
+}
+
+async function loadChatMessages(convId, silent) {
+  try {
+    const data = await api(`/api/v1/chat/conversations/${convId}/messages?size=50`);
+    const items = (data.content || []).slice().reverse(); // 老 → 新
+    const myId = state.user?.id;
+    const html = items.map(m => {
+      const isMe = m.senderId === myId;
+      const t = formatTime(m.createdAt);
+      return `<div class="bubble ${isMe ? 'me' : ''}">
+        <div class="text">${escapeHtml(m.content)}</div>
+        <div class="time">${escapeHtml(t)}</div>
+      </div>`;
+    }).join('');
+    document.getElementById('chat-messages').innerHTML = html;
+    // 滚到底
+    const wrap = document.getElementById('chat-scroll');
+    if (wrap) wrap.scrollTop = wrap.scrollHeight;
+  } catch(e) {
+    if (!silent) showToast(e.message);
+  }
+}
+
+async function sendChatMessage() {
+  if (!state.currentChat) return;
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  try {
+    await api('/api/v1/chat/messages', {
+      method: 'POST',
+      body: JSON.stringify({
+        otherUserId: state.currentChat.otherUserId,
+        content: text,
+      }),
+    });
+    loadChatMessages(state.currentChat.id);
+  } catch(e) {
+    showToast(e.message);
+  }
+}
+
+// ─── 他人主页 ────────────────────────────────
+async function openUserProfile(userId) {
+  goPage('user');
+  const body = document.getElementById('user-body');
+  body.innerHTML = '<div class="user-body" style="padding-top:200px;text-align:center"><div class="user-bio">— 加 载 中 —</div></div>';
+  try {
+    const u = await api(`/api/v1/users/public/${userId}`);
+    const moments = await api(`/api/v1/moments/public/user/${userId}?size=30`).catch(() => ({content: []}));
+    renderUserProfile(u, moments.content || []);
+  } catch(e) {
+    body.innerHTML = `<div class="user-body" style="padding-top:200px;text-align:center"><div class="user-bio">${escapeHtml(e.message)}</div></div>`;
+  }
+}
+
+function renderUserProfile(u, moments) {
+  const body = document.getElementById('user-body');
+  const piecesHtml = moments.length === 0
+    ? '<div style="text-align:center;padding:40px;font-family:var(--cn);font-size:13px;color:var(--shade);letter-spacing:4px">— 尚 未 发 布 —</div>'
+    : moments.map(m => {
+        const cover = (m.mediaUrls && m.mediaUrls.length)
+          ? m.mediaUrls[0]
+          : `https://picsum.photos/seed/velvet${m.id}/200/280`;
+        const price = m.hasItem && m.itemPriceCents
+          ? `<div class="pr">¥ ${(m.itemPriceCents/100).toFixed(0)}</div>` : '';
+        return `<div class="user-piece" onclick="goPage('detail');openDetail(${JSON.stringify(m).replace(/"/g,'&quot;')})">
+          <div class="thumb"><img src="${cover}" onerror="this.style.display='none'"></div>
+          <div class="info">
+            <div class="ti">${escapeHtml(m.title || '无 题')}</div>
+            ${price}
+          </div>
+        </div>`;
+      }).join('');
+  const isMe = state.user?.id === u.id;
+  body.innerHTML = `
+    <div class="user-body">
+      <div class="user-tag">MEMBER</div>
+      <div class="user-name">${escapeHtml(u.nickname || '匿名')}</div>
+      <div class="user-handle">@${escapeHtml(u.username || '')}</div>
+      <div class="user-line"></div>
+      <div class="user-bio">${escapeHtml(u.bio || '— 尚 未 留 言 —')}</div>
+      <div class="user-stats">
+        <div class="user-stat"><div class="num">${u.momentsCount || 0}</div><div class="lbl">PIECES</div></div>
+        <div class="user-stat"><div class="num">${u.followersCount || 0}</div><div class="lbl">FOLLOWERS</div></div>
+        <div class="user-stat"><div class="num">${u.followingCount || 0}</div><div class="lbl">FOLLOWING</div></div>
+      </div>
+      ${isMe ? '' : `
+      <div class="user-actions">
+        <button class="btn" onclick="toggleFollow(${u.id})">关  注</button>
+        <button class="btn ghost" onclick="startChatWith(${u.id},'${escapeHtml(u.nickname || '')}')">私  下  聊</button>
+      </div>`}
+      <div class="user-pieces-title">她 的 发 布<span class="ln"></span></div>
+      ${piecesHtml}
+    </div>
+  `;
+}
+
+async function toggleFollow(userId) {
+  try {
+    const result = await api(`/api/v1/users/${userId}/follow`, {method: 'POST'});
+    showToast(result.followed ? '已 关 注' : '取消关注');
+  } catch(e) {
+    showToast(e.message);
+  }
+}
+
+async function startChatWith(otherUserId, nickname) {
+  // 发一条空白先创建会话，然后跳过去
+  // 更好做法：先 list 看是否已有会话
+  try {
+    const data = await api('/api/v1/chat/conversations?size=50');
+    const existing = (data.content || []).find(c => c.otherUserId === otherUserId);
+    if (existing) {
+      openChat(existing);
+      return;
+    }
+    // 没有会话 — 直接跳到 chat 页面，发第一条消息时自动创建
+    state.currentChat = {
+      id: 0, // 假 id，发消息时后端会创建真 conv
+      otherUserId,
+      otherUserNickname: nickname,
+    };
+    document.getElementById('chat-title').textContent = nickname;
+    document.getElementById('chat-messages').innerHTML = `
+      <div style="text-align:center;padding:40px 0;font-family:var(--cn);font-weight:300;font-size:13px;color:var(--shade);letter-spacing:3px">
+        — 第 一 句 · 由 你 写 下 —
+      </div>`;
+    goPage('chat');
+  } catch(e) {
+    showToast(e.message);
+  }
+}
+
+// ─── 编辑资料 ────────────────────────────────
+async function openProfileEdit() {
+  if (!state.user) return;
+  document.getElementById('pe-nickname').value = state.user.nickname || '';
+  document.getElementById('pe-bio').value = state.user.bio || '';
+  if (state.user.avatarUrl) {
+    const av = document.getElementById('pe-avatar');
+    av.style.backgroundImage = `url('${state.user.avatarUrl}')`;
+    av.classList.add('has-img');
+  }
+  goPage('profile-edit');
+}
+
+async function saveProfileEdit() {
+  const nickname = document.getElementById('pe-nickname').value.trim();
+  const bio = document.getElementById('pe-bio').value.trim();
+  if (!nickname) { showToast('昵称不能为空'); return; }
+  showLoading('SAVING');
+  try {
+    const u = await api('/api/v1/users/me', {
+      method: 'PUT',
+      body: JSON.stringify({nickname, bio}),
+    });
+    state.user = {...state.user, ...u};
+    localStorage.setItem(USER_KEY, JSON.stringify(state.user));
+    hideLoading();
+    showToast('已 保 存');
+    setTimeout(() => { goPage('profile'); loadProfile(); }, 600);
+  } catch(e) {
+    hideLoading();
+    showToast(e.message);
+  }
+}
+
+let _peAvatarFileInput;
+function pickProfileAvatar() {
+  if (!_peAvatarFileInput) {
+    _peAvatarFileInput = document.createElement('input');
+    _peAvatarFileInput.type = 'file';
+    _peAvatarFileInput.accept = 'image/jpeg,image/png,image/webp';
+    _peAvatarFileInput.style.display = 'none';
+    document.body.appendChild(_peAvatarFileInput);
+    _peAvatarFileInput.addEventListener('change', async () => {
+      const f = _peAvatarFileInput.files[0];
+      _peAvatarFileInput.value = '';
+      if (!f) return;
+      showLoading('UPLOADING');
+      try {
+        const url = await uploadFile(f);
+        const av = document.getElementById('pe-avatar');
+        av.style.backgroundImage = `url('${url}')`;
+        av.classList.add('has-img');
+        // 立即保存到 user 资料
+        await api('/api/v1/users/me', {
+          method: 'PUT',
+          body: JSON.stringify({avatarUrl: url}),
+        });
+        state.user.avatarUrl = url;
+        localStorage.setItem(USER_KEY, JSON.stringify(state.user));
+        hideLoading();
+        showToast('头 像 已 更 新');
+      } catch(e) {
+        hideLoading();
+        showToast(e.message);
+      }
+    });
+  }
+  _peAvatarFileInput.click();
+}
+
+// ─── WebSocket 实时聊天 ─────────────────────
+let _ws = null;
+let _wsReconnectTimer = null;
+let _wsPingTimer = null;
+
+function connectWS() {
+  if (!state.token) return;
+  if (_ws && _ws.readyState === WebSocket.OPEN) return;
+  try {
+    const wsBase = API_BASE.replace(/^https/, 'wss').replace(/^http/, 'ws');
+    _ws = new WebSocket(`${wsBase}/ws/chat?token=${state.token}`);
+    _ws.onopen = () => {
+      console.log('[ws] connected');
+      if (_wsPingTimer) clearInterval(_wsPingTimer);
+      _wsPingTimer = setInterval(() => {
+        if (_ws?.readyState === WebSocket.OPEN) {
+          _ws.send(JSON.stringify({type: 'PING'}));
+        }
+      }, 25000);
+    };
+    _ws.onmessage = (e) => {
+      try {
+        const data = JSON.parse(e.data);
+        if (data.type === 'MSG') {
+          // 当前在 chat 详情页 → 重新加载
+          if (state.currentChat && data.conversationId === state.currentChat.id) {
+            loadChatMessages(state.currentChat.id, true);
+          }
+          // 通知小红点
+          loadUnreadCount();
+        }
+      } catch(_) {}
+    };
+    _ws.onclose = () => {
+      console.log('[ws] closed');
+      _ws = null;
+      if (_wsPingTimer) clearInterval(_wsPingTimer);
+      // 重连
+      if (state.token) {
+        if (_wsReconnectTimer) clearTimeout(_wsReconnectTimer);
+        _wsReconnectTimer = setTimeout(connectWS, 3000);
+      }
+    };
+    _ws.onerror = (e) => console.warn('[ws] error', e);
+  } catch(e) {
+    console.warn('[ws] connect failed', e);
+  }
+}
+
+function disconnectWS() {
+  if (_wsPingTimer) clearInterval(_wsPingTimer);
+  if (_wsReconnectTimer) clearTimeout(_wsReconnectTimer);
+  _ws?.close();
+  _ws = null;
+}
+
 // ============== 启动 ==============
 window.addEventListener('error', e => {
   console.error('Global error:', e.error || e.message);
@@ -2101,8 +2934,25 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('notif-link')?.addEventListener('click', () => { goPage('notifications'); loadNotifications(); });
   document.getElementById('profile-link')?.addEventListener('click', () => { goPage('profile'); loadProfile(); });
   document.getElementById('publish-link')?.addEventListener('click', () => goPage('publish'));
-  document.getElementById('logout-btn')?.addEventListener('click', doLogout);
+  document.getElementById('logout-btn')?.addEventListener('click', () => { disconnectWS(); doLogout(); });
   document.getElementById('my-pieces-btn')?.addEventListener('click', viewMyPieces);
+  document.getElementById('edit-profile-btn')?.addEventListener('click', openProfileEdit);
+
+  // v14: 搜索 / 私语 / 编辑资料
+  document.getElementById('search-link')?.addEventListener('click', () => {
+    goPage('search');
+    setTimeout(() => document.getElementById('search-input')?.focus(), 300);
+  });
+  document.getElementById('chats-link')?.addEventListener('click', () => {
+    goPage('chats'); loadChats();
+  });
+  document.getElementById('search-input')?.addEventListener('input', e => onSearchInput(e.target.value));
+  document.getElementById('chat-send')?.addEventListener('click', sendChatMessage);
+  document.getElementById('chat-input')?.addEventListener('keypress', e => {
+    if (e.key === 'Enter') sendChatMessage();
+  });
+  document.getElementById('pe-save')?.addEventListener('click', saveProfileEdit);
+  document.getElementById('pe-avatar')?.addEventListener('click', pickProfileAvatar);
   // 密码 reveal
   document.getElementById('pw-eye')?.addEventListener('click', () => {
     const inp = document.getElementById('login-password');
@@ -2132,6 +2982,7 @@ window.addEventListener('DOMContentLoaded', () => {
       goPage('feed');
       loadFeed();
       loadUnreadCount();
+      connectWS();
     } else {
       goPage('login');
     }
