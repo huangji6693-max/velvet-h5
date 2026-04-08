@@ -1768,92 +1768,131 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   color:var(--gold);letter-spacing:1px;
 }
 
-/* ============== 编辑资料 v15 ============== */
+/* ============== 编辑资料 v16.3 ============== */
 #profile-edit.page{
-  background:radial-gradient(ellipse at 50% 0%, #120A0A 0%, #050303 80%);
+  background:
+    radial-gradient(ellipse at 50% 5%, var(--gold-15) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 0%, #120A0A 0%, #050303 80%);
 }
 .pe-header{
-  display:flex;align-items:center;gap:8px;
-  padding:24px 16px 16px;
+  display:flex;align-items:center;gap:var(--sp-3);
+  padding:var(--sp-5) var(--sp-4) var(--sp-4);
+  border-bottom:1px solid var(--gold-30);
+  background:rgba(0,0,0,.5);
 }
 .pe-header .back-btn{
-  width:44px;height:44px;
-  font-size:22px;color:var(--gold);
+  width:48px;height:48px;
+  font-family:var(--serif);font-weight:300;
+  font-size:var(--t-2xl);
+  color:var(--gold);background:none;border:none;cursor:pointer;
+  line-height:1;
+  z-index:51;
 }
+.pe-header .back-btn:active{opacity:.5}
 .pe-title{
   flex:1;text-align:center;
-  font-family:var(--cn);font-weight:300;font-size:14px;
-  color:var(--gold);letter-spacing:6px;padding-left:6px;
-  text-shadow:0 0 14px rgba(201,169,97,.35);
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-md);
+  color:var(--gold);
+  letter-spacing:var(--ls-cn-heading);
+  padding-left:var(--ls-cn-heading);
+  text-shadow:0 0 14px rgba(201,169,97,.4);
+  line-height:1;
 }
 .pe-save{
-  background:none;border:none;
-  font-family:var(--cn);font-weight:300;font-size:13px;
-  color:var(--gold);letter-spacing:4px;padding:0 4px 0 8px;
-  cursor:pointer;
-  text-shadow:0 0 12px rgba(201,169,97,.4);
+  background:var(--gold-08);border:1px solid var(--gold);
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-sm);
+  color:var(--gold);
+  letter-spacing:var(--ls-cn-button);text-indent:var(--ls-cn-button);
+  padding:10px 16px;cursor:pointer;
+  line-height:1;
+  box-shadow:0 0 16px -4px rgba(201,169,97,.4);
 }
-.pe-save:hover{color:var(--gold-light)}
-.pe-body{padding:24px 32px 80px}
+.pe-save:hover{background:var(--gold);color:var(--void)}
+.pe-body{padding:var(--sp-5) var(--sp-6) var(--sp-9)}
 .pe-avatar-row{
-  display:flex;justify-content:center;
-  margin:32px 0 56px;
+  display:flex;flex-direction:column;align-items:center;gap:var(--sp-3);
+  margin:var(--sp-6) 0 var(--sp-7);
 }
 .pe-avatar{
-  width:88px;height:88px;border-radius:50%;
+  width:104px;height:104px;border-radius:50%;
   background:radial-gradient(circle at 30% 30%,#1A0F12,#050303);
-  border:1px solid rgba(201,169,97,.55);
+  border:1px solid var(--gold);
   display:flex;align-items:center;justify-content:center;
   position:relative;cursor:pointer;
   background-size:cover;background-position:center;
-  box-shadow:0 0 28px -6px rgba(201,169,97,.35);
+  box-shadow:0 0 32px -6px rgba(201,169,97,.4);
 }
 .pe-avatar.has-img .pe-avatar-letter{display:none}
 .pe-avatar-letter{
-  font-family:var(--serif);font-weight:400;font-size:38px;
-  color:rgba(201,169,97,.65);letter-spacing:1px;
+  font-family:var(--serif);font-weight:400;
+  font-size:48px;
+  color:var(--gold-50);letter-spacing:0.04em;
+  line-height:1;
 }
 .pe-avatar-cam{
-  position:absolute;bottom:-2px;right:-2px;
-  width:26px;height:26px;border-radius:50%;
+  position:absolute;bottom:0;right:0;
+  width:30px;height:30px;border-radius:50%;
   background:var(--gold);border:2px solid var(--void);
   display:flex;align-items:center;justify-content:center;
-  font-size:11px;color:var(--void);
+  font-family:var(--serif);font-size:18px;font-weight:300;
+  color:var(--void);line-height:1;
+}
+.pe-avatar-tip{
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-xs);
+  color:var(--ash);letter-spacing:var(--ls-cn-label);
+  padding-left:var(--ls-cn-label);
+  opacity:.7;
 }
 .pe-field{
-  margin-bottom:36px;
+  margin-bottom:var(--sp-7);
 }
 .pe-section{
-  font-family:var(--cn);font-weight:300;font-size:11px;
-  color:var(--gold);letter-spacing:5px;padding-left:5px;
-  margin-bottom:10px;opacity:.78;
+  display:flex;align-items:baseline;gap:10px;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-sm);
+  color:var(--gold);
+  letter-spacing:var(--ls-cn-label);
+  padding-left:0.16em;
+  margin-bottom:var(--sp-3);line-height:1;
+}
+.pe-section .en{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:var(--t-2xs);
+  letter-spacing:var(--ls-en-label);
+  opacity:.55;text-transform:uppercase;
 }
 .pe-input{
-  width:100%;height:38px;
+  width:100%;
   background:transparent;
-  border:none;border-bottom:1px solid rgba(201,169,97,.22);
-  font-family:var(--cn);font-weight:300;font-size:18px;
-  color:var(--bone);letter-spacing:1px;
-  padding:0 2px;
+  border:none;border-bottom:1px solid var(--gold-30);
+  font-family:var(--serif);font-weight:400;
+  font-size:var(--t-lg);
+  color:var(--bone);letter-spacing:0.02em;
+  padding:8px 2px 14px;
+  line-height:var(--lh-display);
 }
 .pe-input:focus{outline:none;border-bottom-color:var(--gold)}
+.pe-input::placeholder{
+  color:var(--gold-30);font-style:italic;
+  font-family:var(--cn);font-weight:300;
+}
 .pe-textarea{
-  width:100%;min-height:96px;
+  width:100%;min-height:120px;
   background:transparent;resize:none;
-  border:none;border-bottom:1px solid rgba(201,169,97,.22);
-  font-family:var(--cn);font-weight:300;font-size:14px;
-  color:var(--bone);letter-spacing:.5px;line-height:1.85;
-  padding:6px 2px;
+  border:none;border-bottom:1px solid var(--gold-30);
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-md);
+  color:var(--bone);letter-spacing:0.04em;
+  line-height:var(--lh-relaxed);
+  padding:8px 2px;
 }
 .pe-textarea::placeholder{
-  color:rgba(201,169,97,.3);font-style:italic;letter-spacing:1px;
+  color:var(--gold-30);font-style:italic;
 }
 .pe-textarea:focus{outline:none;border-bottom-color:var(--gold)}
-.pe-hint{
-  font-family:var(--cn);font-weight:300;font-size:10px;
-  color:var(--shade);letter-spacing:2px;
-  margin-top:6px;text-align:right;opacity:.6;
-}
 </style>
 </head>
 <body>
@@ -2118,9 +2157,9 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
     <!-- ─── 编辑资料 ─── -->
     <div id="profile-edit" class="page">
       <div class="pe-header">
-        <button class="back-btn" onclick="goPage('profile')">×</button>
+        <button type="button" class="back-btn" id="pe-back">×</button>
         <div class="pe-title">编 辑 资 料</div>
-        <button class="pe-save" id="pe-save">保 存</button>
+        <button type="button" class="pe-save" id="pe-save">保 存</button>
       </div>
       <div class="scrollable">
         <div class="pe-body">
@@ -2129,14 +2168,15 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
               <div class="pe-avatar-letter">V</div>
               <div class="pe-avatar-cam">+</div>
             </div>
+            <div class="pe-avatar-tip">点 击 更 换 头 像</div>
           </div>
           <div class="pe-field">
-            <div class="pe-section">昵 称</div>
+            <div class="pe-section">昵 称 <span class="en">Name</span></div>
             <input type="text" id="pe-nickname" class="pe-input" maxlength="32"
                    autocomplete="off" spellcheck="false">
           </div>
           <div class="pe-field">
-            <div class="pe-section">简 介</div>
+            <div class="pe-section">简 介 <span class="en">Bio</span></div>
             <textarea id="pe-bio" class="pe-textarea"
                       placeholder="一两句话 · 懂的人自然知道"
                       maxlength="500" rows="4"></textarea>
@@ -3304,6 +3344,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
   document.getElementById('pe-save')?.addEventListener('click', saveProfileEdit);
   document.getElementById('pe-avatar')?.addEventListener('click', pickProfileAvatar);
+  document.getElementById('pe-back')?.addEventListener('click', () => goPage('profile'));
   // 密码 reveal
   document.getElementById('pw-eye')?.addEventListener('click', () => {
     const inp = document.getElementById('login-password');
