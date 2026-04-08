@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#000000">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>VELVET · Private things, quietly exchanged</title>
+<title>VELVET · 私 藏 · 流 转</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1649,7 +1649,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
       <div class="login-cn-mark">天 鹅 绒</div>
       <div class="login-line"></div>
       <div class="login-tag">余 温 · 未 散</div>
-      <div class="login-tag-en">Some warmth lingers.</div>
+      
 
       <div class="mode-row">
         <button class="mode-btn on" id="mode-login" type="button">登 录</button>
@@ -1678,7 +1678,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
       </div>
 
       <button class="cta" id="login-cta" type="button">进 入 VELVET</button>
-      <div class="legal">懂 的 人 · 不 必 多 言<br><span style="opacity:.5;font-size:10px">Those who know, need no words.</span></div>
+      <div class="legal">懂 的 人 · 不 必 多 言</div>
     </div>
 
     <!-- ─── Feed ─── -->
@@ -2339,19 +2339,33 @@ async function toggleFav() {
 
 async function sendInquiry() {
   if (!state.currentMoment) return;
-  if (!state.token) { showToast('请先登入'); return; }
+  if (!state.token) { showToast('请先登录'); return; }
   const sellerId = state.currentMoment.userId;
   if (sellerId === state.user?.id) { showToast('这是你自己的发布'); return; }
-  showLoading('SENDING INTEREST');
+  const sellerName = state.currentMoment.userNickname || '卖家';
+  // 直接打开跟卖家的私聊
   try {
-    // 用 follow 接口当作"表达兴趣" — 会向卖家发通知
-    await api(`/api/v1/users/${sellerId}/follow`, {method: 'POST'});
-    hideLoading();
-    showToast('INTEREST NOTED · The curator has been notified.', 3200);
+    const data = await api('/api/v1/chat/conversations?size=50');
+    const existing = (data.content || []).find(c => c.otherUserId === sellerId);
+    if (existing) {
+      openChat(existing);
+      return;
+    }
+    state.currentChat = {
+      id: 0,
+      otherUserId: sellerId,
+      otherUserNickname: sellerName,
+      momentId: state.currentMoment.id,
+    };
+    document.getElementById('chat-title').textContent = sellerName;
+    document.getElementById('chat-messages').innerHTML = `
+      <div style="text-align:center;padding:60px 24px">
+        <div style="font-family:var(--cn);font-weight:200;font-size:14px;color:var(--gold);letter-spacing:5px;margin-bottom:16px;opacity:.85">第 一 句 · 由 你 写 下</div>
+        <div style="font-family:var(--cn);font-weight:200;font-size:12px;color:var(--shade);letter-spacing:2px;line-height:1.8">关于「${escapeHtml(state.currentMoment.title || '这件')}」</div>
+      </div>`;
+    goPage('chat');
   } catch(e) {
-    hideLoading();
-    if (e.message.includes('已')) showToast('INTEREST ALREADY NOTED', 2800);
-    else showToast(e.message);
+    showToast(e.message);
   }
 }
 
