@@ -713,21 +713,31 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 
 .editorial-card{
   cursor:pointer;
-  padding:64px 32px 72px;
-  border-bottom:1px solid var(--edge);
+  padding:72px 32px 80px;
+  border-bottom:1px solid var(--gold-15);
   position:relative;
-  transition:background 500ms var(--ease);
+  transition:all 500ms var(--ease);
   overflow:hidden;
 }
 .editorial-card::before{
-  content:'';position:absolute;top:0;left:50%;
-  width:0;height:1px;background:var(--gold);
+  content:'❦';
+  position:absolute;top:32px;left:50%;
+  font-family:var(--serif);font-size:var(--t-md);
+  color:var(--gold);opacity:.45;
   transform:translateX(-50%);
-  transition:width 600ms var(--ease);
-  z-index:3;
+  transition:all 600ms var(--ease);
+  z-index:3;line-height:1;
+  text-shadow:0 0 12px rgba(201,169,97,.5);
 }
-.editorial-card:hover::before{width:40px}
-.editorial-card:hover{background:linear-gradient(180deg,rgba(201,169,97,.018),transparent)}
+.editorial-card:hover::before{opacity:1;transform:translateX(-50%) scale(1.2)}
+.editorial-card:hover{background:linear-gradient(180deg,var(--gold-04),transparent)}
+.editorial-card::after{
+  /* 底部装饰渐变细线 */
+  content:'';position:absolute;bottom:0;left:50%;
+  width:32px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-50),transparent);
+  transform:translateX(-50%);
+}
 /* 巨型罗马数字水印 */
 .editorial-card .watermark{
   position:absolute;top:40px;right:-12px;
@@ -1175,27 +1185,34 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 
 /* ============== Notifications ============== */
 #notifications{background:var(--void)}
-.notif-list{padding:96px 0 120px}
+.notif-list{padding:120px 0 120px}
 .notif-item{
-  display:flex;align-items:center;gap:16px;
+  display:flex;align-items:center;gap:18px;
   padding:24px 32px;
-  border-bottom:1px solid var(--edge);
+  border-bottom:1px solid var(--gold-15);
+  position:relative;
+  transition:background 400ms var(--ease);
 }
+.notif-item:hover{background:var(--gold-04)}
 .notif-icon{
   font-family:var(--serif);font-size:var(--t-lg);
-  width:32px;height:32px;
+  width:38px;height:38px;
   display:flex;align-items:center;justify-content:center;
-  border:1px solid var(--gold);color:var(--gold);
-  flex-shrink:0;
+  border:1px solid var(--gold-50);color:var(--gold);
+  flex-shrink:0;line-height:1;
+  background:var(--gold-04);
+  box-shadow:0 0 16px -4px rgba(201,169,97,.4);
 }
 .notif-text{flex:1;min-width:0}
 .notif-text .t{
-  font-family:var(--serif);font-size:var(--t-sm);color:var(--bone);
-  letter-spacing:.3px;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-md);color:var(--bone);
+  letter-spacing:0.04em;line-height:1.5;
 }
 .notif-text .c{
-  font-family:var(--serif);font-style:italic;font-size:var(--t-xs);
-  color:var(--ash);margin-top:4px;letter-spacing:.5px;
+  font-family:var(--cn);font-weight:300;font-style:italic;
+  font-size:var(--t-sm);
+  color:var(--ash);margin-top:6px;letter-spacing:0.04em;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .notif-time{
@@ -1206,12 +1223,23 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   text-align:center;padding:120px 32px;
 }
 .notif-empty .roman{
-  font-family:var(--serif);font-style:italic;font-size:var(--t-xs);
-  color:var(--gold);letter-spacing:3px;text-transform:uppercase;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-md);
+  color:var(--gold);letter-spacing:var(--ls-cn-heading);
+  text-shadow:0 0 16px rgba(201,169,97,.4);
+  margin-bottom:var(--sp-3);
+}
+.notif-empty .roman::before{
+  content:'❦  ';color:var(--gold-70);font-family:var(--serif);
+}
+.notif-empty .roman::after{
+  content:'  ❦';color:var(--gold-70);font-family:var(--serif);
 }
 .notif-empty .text{
-  font-family:var(--serif);font-style:italic;font-size:var(--t-md);
-  color:var(--ash);margin-top:16px;line-height:1.7;
+  font-family:var(--cn);font-weight:300;font-style:italic;
+  font-size:var(--t-sm);
+  color:var(--ash);margin-top:var(--sp-3);
+  line-height:var(--lh-relaxed);letter-spacing:0.04em;
 }
 
 /* ============== Publish v16.1 ============== */
@@ -1655,7 +1683,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 
 /* ============== 私语列表 ============== */
 #chats.page{background:var(--void)}
-.chats-list{padding:96px 0 80px}
+.chats-list{padding:120px 0 100px}
 .chats-loading,.chats-empty{
   text-align:center;padding:80px 32px;
   font-family:var(--cn);font-weight:300;font-size:var(--t-sm);
@@ -1674,39 +1702,58 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   letter-spacing:2px;
 }
 .chat-row{
-  display:flex;align-items:center;gap:16px;
-  padding:18px 24px;
-  border-bottom:1px solid rgba(201,169,97,.08);
+  display:flex;align-items:center;gap:18px;
+  padding:22px 28px;
+  border-bottom:1px solid var(--gold-15);
   cursor:pointer;
+  transition:all 400ms var(--ease);
+  position:relative;
 }
+.chat-row:hover{
+  background:var(--gold-04);
+  padding-left:36px;
+}
+.chat-row::before{
+  content:'';position:absolute;left:0;top:50%;
+  width:0;height:1px;background:var(--gold);
+  transform:translateY(-50%);
+  transition:width 400ms var(--ease);
+}
+.chat-row:hover::before{width:20px}
 .chat-avatar{
-  width:52px;height:52px;border-radius:50%;
+  width:56px;height:56px;border-radius:50%;
   background:radial-gradient(circle at 30% 30%,#1A0F12,#050303);
-  border:1px solid rgba(201,169,97,.5);
+  border:1px solid var(--gold-50);
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--serif);font-weight:500;font-size:var(--t-xl);
+  font-family:var(--serif);font-weight:500;
+  font-size:var(--t-xl);
   color:var(--gold);
   flex-shrink:0;
+  box-shadow:0 0 18px -4px rgba(201,169,97,.35);
+  text-shadow:0 0 10px rgba(201,169,97,.6);
 }
 .chat-row .info{flex:1;min-width:0}
-.chat-row .top{display:flex;align-items:center;justify-content:space-between}
+.chat-row .top{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
 .chat-row .name{
-  font-family:var(--serif);font-weight:500;font-size:var(--t-lg);
-  color:var(--bone);letter-spacing:.5px;
+  font-family:var(--serif);font-weight:500;
+  font-size:var(--t-lg);
+  color:var(--bone);letter-spacing:0.04em;
 }
 .chat-row .when{
-  font-family:var(--serif);font-style:italic;font-size:var(--t-xs);
-  color:var(--shade);
+  font-family:var(--serif);font-style:italic;
+  font-size:var(--t-2xs);
+  color:var(--shade);letter-spacing:0.06em;
 }
 .chat-row .last{
-  margin-top:6px;
-  font-family:var(--cn);font-weight:300;font-size:var(--t-sm);
-  color:var(--ash);letter-spacing:.5px;
+  margin-top:8px;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-sm);
+  color:var(--ash);letter-spacing:0.04em;line-height:1.5;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .chat-row .dot{
   width:8px;height:8px;border-radius:50%;background:var(--gold);
-  box-shadow:0 0 8px rgba(201,169,97,.7);
+  box-shadow:0 0 10px rgba(201,169,97,.8);
   margin-left:12px;flex-shrink:0;
 }
 
@@ -1724,26 +1771,59 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   color:var(--gold);letter-spacing:2px;
   text-shadow:0 0 14px rgba(201,169,97,.4);
 }
-.chat-messages{padding:24px 20px;display:flex;flex-direction:column;gap:16px}
+.chat-deco{
+  width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:var(--t-md);
+  color:var(--gold-70);line-height:1;
+  text-shadow:0 0 12px rgba(201,169,97,.5);
+}
+.chat-messages{padding:32px 24px;display:flex;flex-direction:column;gap:18px}
 .bubble{
-  max-width:72%;padding:14px 18px;
-  border:1px solid rgba(201,169,97,.2);
-  background:rgba(0,0,0,.7);
+  max-width:75%;padding:16px 20px;
+  border:1px solid var(--gold-30);
+  background:rgba(0,0,0,.55);
+  position:relative;
+  animation:bubbleIn 500ms var(--ease) backwards;
+}
+@keyframes bubbleIn{
+  from{opacity:0;transform:translateY(8px) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
 }
 .bubble.me{
   align-self:flex-end;
-  background:rgba(201,169,97,.12);
-  border-color:rgba(201,169,97,.55);
-  box-shadow:0 0 18px -6px rgba(201,169,97,.3);
+  background:linear-gradient(180deg,var(--gold-15) 0%,var(--gold-08) 100%);
+  border-color:var(--gold-50);
+  box-shadow:
+    0 0 24px -8px rgba(201,169,97,.4),
+    0 0 8px -2px rgba(201,169,97,.25);
+}
+.bubble.me::after{
+  /* 自己气泡右下角小钻石 */
+  content:'';position:absolute;right:-3px;bottom:-3px;
+  width:5px;height:5px;background:var(--gold);
+  transform:rotate(45deg);
+  box-shadow:0 0 8px rgba(201,169,97,.7);
+}
+.bubble:not(.me)::before{
+  /* 对方气泡左下角小钻石 */
+  content:'';position:absolute;left:-3px;bottom:-3px;
+  width:5px;height:5px;background:var(--gold-50);
+  transform:rotate(45deg);
 }
 .bubble .text{
-  font-family:var(--cn);font-weight:300;font-size:var(--t-md);
-  color:var(--bone);line-height:1.6;letter-spacing:1px;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-md);
+  color:var(--bone);
+  line-height:var(--lh-relaxed);
+  letter-spacing:0.04em;
 }
 .bubble .time{
-  margin-top:6px;
-  font-family:var(--serif);font-style:italic;font-size:var(--t-2xs);
-  color:var(--shade);letter-spacing:1px;
+  margin-top:8px;
+  font-family:var(--serif);font-style:italic;
+  font-size:var(--t-2xs);
+  color:var(--shade);letter-spacing:0.06em;
+  text-align:right;
 }
 .chat-input-row{
   display:flex;align-items:flex-end;gap:12px;
@@ -2262,8 +2342,9 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
     <!-- ─── 私语详情 ─── -->
     <div id="chat" class="page">
       <div class="chat-header">
-        <button class="back-btn" onclick="goPage('chats'); loadChats()">←</button>
+        <button type="button" class="back-btn" onclick="goPage('chats'); loadChats()">←</button>
         <div class="chat-title" id="chat-title">私 语</div>
+        <div class="chat-deco">❦</div>
       </div>
       <div class="scrollable" id="chat-scroll">
         <div id="chat-messages" class="chat-messages"></div>
