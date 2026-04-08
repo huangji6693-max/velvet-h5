@@ -9,7 +9,7 @@
 <title>VELVET · Private things, quietly exchanged</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@200;300;400;500;600&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
 <style>
 /* ============================================================================
    VELVET v4 · Editorial Luxury
@@ -33,7 +33,8 @@
 
   --serif: 'Cormorant Garamond', 'Noto Serif SC', serif;
   --sans:  'Inter', -apple-system, system-ui, sans-serif;
-  --cn:    'Noto Serif SC', serif;
+  --cn:    'ZCOOL XiaoWei', 'Noto Serif SC', 'STSongti-SC-Light', 'Songti SC', serif;
+  --cn-brush: 'Ma Shan Zheng', 'ZCOOL XiaoWei', serif;
 
   --ease:  cubic-bezier(.2,.8,.2,1);
 }
@@ -193,18 +194,19 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   opacity:0;animation:fadeUp 1.4s var(--ease) 1.5s forwards;
 }
 .splash-cn-mark{
-  font-family:var(--cn);font-weight:300;
-  font-size:14px;letter-spacing:14px;
-  color:rgba(201,169,97,.78);text-align:center;
-  margin-top:14px;padding-left:14px;
+  font-family:var(--cn);font-weight:400;
+  font-size:15px;letter-spacing:8px;
+  color:rgba(201,169,97,.72);text-align:center;
+  margin-top:18px;padding-left:8px;
   opacity:0;animation:fadeUp 1.4s var(--ease) 1s forwards;
 }
 .splash-cn{
-  position:absolute;bottom:48px;left:0;right:0;text-align:center;
-  font-family:var(--cn);font-size:12px;letter-spacing:8px;
-  color:var(--gold);font-weight:300;opacity:0;
+  position:absolute;bottom:52px;left:0;right:0;text-align:center;
+  font-family:var(--cn);font-size:13px;letter-spacing:5px;
+  color:var(--gold);font-weight:400;opacity:0;
   animation:fadeUp 1.4s var(--ease) 2s forwards;
-  text-shadow:0 0 16px rgba(201,169,97,.4);
+  text-shadow:0 0 16px rgba(201,169,97,.45);
+  padding-left:5px;
 }
 .splash-cn.show{opacity:.85}
 .splash-status{
@@ -213,19 +215,19 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   color:var(--shade);letter-spacing:2px;
 }
 
-/* ============== Login · 编辑式 (v9) ============== */
+/* ============== Login · 编辑式 (v10) ============== */
 #login.page{
   background:
-    radial-gradient(ellipse at 50% 16%, rgba(201,169,97,.14) 0%, transparent 42%),
+    radial-gradient(ellipse at 50% 14%, rgba(201,169,97,.16) 0%, transparent 42%),
     radial-gradient(ellipse at 50% 32%, #120A0A 0%, #050303 80%);
-  padding:72px 36px 56px;
+  padding:64px 36px 48px;
   display:flex;flex-direction:column;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
   box-shadow:
-    inset 0 0 0 1px rgba(201,169,97,.06),
-    inset 0 0 180px rgba(0,0,0,.85),
-    inset 0 -100px 80px -40px rgba(0,0,0,.55);
+    inset 0 0 0 1px rgba(201,169,97,.07),
+    inset 0 0 200px rgba(0,0,0,.88),
+    inset 0 -120px 100px -50px rgba(0,0,0,.6);
 }
 /* 顶部 hairline + 底部 hairline 装饰 */
 #login::before{
@@ -257,33 +259,42 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 }
 .login-mark{
   font-family:var(--serif);font-weight:500;
-  font-size:68px;letter-spacing:12px;text-align:center;
-  background:linear-gradient(180deg,#FAF4E6 0%,#E8C879 30%,#C9A961 55%,#8C7536 85%,#5A4820 100%);
+  font-size:64px;letter-spacing:10px;text-align:center;
+  background:linear-gradient(180deg,#FAF4E6 0%,#E8C879 28%,#C9A961 56%,#8C7536 86%,#5A4820 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
-  margin-top:12px;padding-left:12px;
-  filter:drop-shadow(0 0 48px rgba(201,169,97,.32)) drop-shadow(0 2px 12px rgba(201,169,97,.2));
+  margin-top:16px;padding-left:10px;line-height:1;
+  filter:drop-shadow(0 0 56px rgba(201,169,97,.42)) drop-shadow(0 2px 14px rgba(201,169,97,.25));
 }
 .login-line{
-  width:48px;height:1px;background:var(--gold);
-  margin:32px auto;
+  width:56px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:36px auto 28px;position:relative;
+}
+.login-line::before{
+  content:'';position:absolute;top:50%;left:50%;
+  width:5px;height:5px;background:var(--gold);
+  transform:translate(-50%,-50%) rotate(45deg);
+  box-shadow:0 0 10px rgba(201,169,97,.6);
 }
 /* Logo 下中文副标 */
 .login-cn-mark{
-  font-family:var(--cn);font-weight:300;
-  font-size:12px;letter-spacing:10px;
+  font-family:var(--cn);font-weight:400;
+  font-size:14px;letter-spacing:7px;
   color:rgba(201,169,97,.7);text-align:center;
-  margin-top:10px;padding-left:10px;
+  margin-top:14px;padding-left:7px;
 }
 .login-tag{
-  font-family:var(--cn);font-weight:300;font-size:13px;
+  font-family:var(--cn);font-weight:400;font-size:15px;
   color:var(--gold);text-align:center;letter-spacing:5px;
-  margin-bottom:8px;opacity:.85;
+  margin-bottom:6px;opacity:.92;
+  text-shadow:0 0 18px rgba(201,169,97,.35);
+  padding-left:5px;
 }
 .login-tag-en{
-  font-family:var(--serif);font-style:italic;font-size:11px;
-  color:var(--ash);text-align:center;letter-spacing:1.5px;
-  margin-bottom:56px;opacity:.7;
+  font-family:var(--serif);font-style:italic;font-size:12px;
+  color:var(--ash);text-align:center;letter-spacing:2px;
+  margin-bottom:56px;opacity:.6;
 }
 /* 密码 reveal 按钮 */
 .pw-row{position:relative;display:flex;align-items:center}
@@ -309,9 +320,9 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 
 .mode-row{
   display:flex;justify-content:center;gap:0;
-  border-top:1px solid rgba(201,169,97,.18);
-  border-bottom:1px solid rgba(201,169,97,.18);
-  margin-bottom:48px;position:relative;
+  border-top:1px solid rgba(201,169,97,.2);
+  border-bottom:1px solid rgba(201,169,97,.2);
+  margin-bottom:36px;position:relative;
 }
 .mode-row::before,.mode-row::after{
   content:'';position:absolute;left:50%;
@@ -322,15 +333,16 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .mode-row::before{top:-2px}
 .mode-row::after{bottom:-2px}
 .mode-btn{
-  flex:1;padding:20px 0;
-  font-family:var(--cn);font-size:14px;font-weight:400;
-  letter-spacing:8px;
+  flex:1;padding:22px 0;
+  font-family:var(--cn);font-size:16px;font-weight:400;
+  letter-spacing:6px;
   color:var(--ash);
   position:relative;
   transition:all 400ms var(--ease);
+  padding-left:6px;
 }
 .mode-btn+.mode-btn{border-left:1px solid rgba(201,169,97,.14)}
-.mode-btn.on{color:var(--gold);letter-spacing:10px;text-shadow:0 0 14px rgba(201,169,97,.4)}
+.mode-btn.on{color:var(--gold);letter-spacing:8px;text-shadow:0 0 16px rgba(201,169,97,.45)}
 .mode-btn.on::after{
   content:'';position:absolute;left:50%;bottom:-1px;
   width:32px;height:1px;background:var(--gold);
@@ -338,14 +350,15 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   box-shadow:0 0 8px rgba(201,169,97,.6);
 }
 
-.field{margin-bottom:36px;position:relative}
+.field{margin-bottom:32px;position:relative}
 .field-label{
-  font-family:var(--cn);font-weight:400;font-size:12px;
-  letter-spacing:6px;color:var(--gold);opacity:.85;
+  font-family:var(--cn);font-weight:400;font-size:13px;
+  letter-spacing:5px;color:var(--gold);opacity:.82;
   margin-bottom:14px;
+  padding-left:5px;
   transition:all 300ms;
 }
-.field.focused .field-label{opacity:1;letter-spacing:8px}
+.field.focused .field-label{opacity:1;letter-spacing:7px;padding-left:7px}
 .field input{
   width:100%;font-family:var(--serif);font-size:22px;font-weight:400;
   color:var(--bone);padding:6px 0 14px;letter-spacing:.5px;
@@ -361,9 +374,9 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 
 .cta{
   display:block;width:100%;
-  margin-top:48px;padding:22px 0;
-  font-family:var(--cn);font-size:14px;font-weight:400;
-  letter-spacing:8px;
+  margin-top:36px;padding:22px 0;
+  font-family:var(--cn);font-size:16px;font-weight:400;
+  letter-spacing:6px;padding-left:6px;
   color:var(--gold);
   background:linear-gradient(180deg,rgba(201,169,97,.06) 0%,rgba(201,169,97,.02) 100%);
   border:1px solid var(--gold);
