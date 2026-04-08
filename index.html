@@ -98,12 +98,17 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 
 .pages{position:absolute;inset:0;overflow:hidden}
 .page{
-  position:absolute;inset:0;display:none;opacity:0;
+  position:absolute;inset:0;opacity:0;
   transform:translateY(12px);
   transition:opacity 700ms var(--ease),transform 700ms var(--ease);
   will-change:opacity,transform;
+  pointer-events:none;
+  visibility:hidden;
 }
-.page.active{display:block;opacity:1;transform:translateY(0)}
+.page.active{
+  opacity:1;transform:translateY(0);
+  pointer-events:auto;visibility:visible;
+}
 .scrollable{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .scrollable::-webkit-scrollbar{display:none}
 
