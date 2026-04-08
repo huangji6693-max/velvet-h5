@@ -2177,12 +2177,9 @@ function attachReveal(root) {
 }
 
 function formatPubDate(iso) {
-  if (!iso) return 'MMXXVI';
+  if (!iso) return '';
   const d = new Date(iso);
-  const months = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
-  const yrs = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
-  const yIdx = Math.max(0, Math.min(yrs.length - 1, d.getFullYear() - 2021));
-  return months[d.getMonth()] + ' · MMXX' + yrs[yIdx];
+  return `${d.getMonth() + 1} 月 ${d.getDate()} 日`;
 }
 
 async function toggleLike(momentId) {
