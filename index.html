@@ -266,18 +266,23 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 }
 /* 密码 reveal 按钮 */
 .pw-row{position:relative;display:flex;align-items:center}
-.pw-row input{flex:1;padding-right:48px}
+.pw-row input{flex:1;padding-right:64px}
 .pw-eye{
-  position:absolute;right:0;bottom:14px;
-  font-family:var(--cn);font-size:12px;font-weight:400;
-  color:var(--gold);background:none;border:none;
-  padding:6px 4px;cursor:pointer;
-  letter-spacing:1px;
-  border-bottom:1px solid rgba(201,169,97,.4);
+  position:absolute;right:0;bottom:8px;
+  font-family:var(--cn);font-size:14px;font-weight:400;
+  color:var(--gold);background:rgba(201,169,97,.06);
+  border:1px solid rgba(201,169,97,.4);
+  padding:6px 14px;cursor:pointer;
+  letter-spacing:2px;
   transition:all 300ms var(--ease);
+  z-index:2;
 }
-.pw-eye:hover{color:var(--gold-light);border-bottom-color:var(--gold)}
+.pw-eye:hover{
+  color:var(--void);background:var(--gold);border-color:var(--gold);
+  box-shadow:0 0 16px -4px rgba(201,169,97,.5);
+}
 .pw-eye .eye-off{display:none}
+.pw-eye.on{background:rgba(201,169,97,.18);color:var(--gold-light)}
 .pw-eye.on .eye-on{display:none}
 .pw-eye.on .eye-off{display:inline}
 
