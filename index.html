@@ -50,8 +50,16 @@ html,body{
 /* 全局纸纹噪点底（subtle grain，editorial 感） */
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:99999;
-  opacity:.04;mix-blend-mode:overlay;
+  opacity:.07;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.2' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* 金色环境光（覆盖在所有页面上，z-index 介于内容和噪点之间） */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:99998;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(201,169,97,.10) 0%, transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(201,169,97,.06) 0%, transparent 50%);
+  mix-blend-mode:screen;
 }
 button,input,textarea{
   background:none;border:none;color:inherit;font:inherit;outline:none;
@@ -112,24 +120,28 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .scrollable{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .scrollable::-webkit-scrollbar{display:none}
 
-/* ============== Splash · editorial 慢入场 (v5) ============== */
+/* ============== Splash · editorial 慢入场 (v8) ============== */
 #splash.page{
-  background:radial-gradient(ellipse at 50% 40%,#0A0608 0%,#000 75%);
+  background:
+    radial-gradient(ellipse at 50% 38%, rgba(201,169,97,.14) 0%, transparent 35%),
+    radial-gradient(ellipse at 50% 40%, #120A0A 0%, #050303 75%);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
 }
+/* 四角金箔 frame */
 #splash::before,#splash::after{
-  content:'';position:absolute;width:56px;height:56px;
-  border:1px solid rgba(201,169,97,.28);pointer-events:none;
+  content:'';position:absolute;width:64px;height:64px;
+  border:1px solid rgba(201,169,97,.55);pointer-events:none;
+  box-shadow:0 0 24px -8px rgba(201,169,97,.45);
 }
 #splash::before{top:32px;left:32px;border-right:none;border-bottom:none}
 #splash::after{bottom:80px;right:32px;border-left:none;border-top:none}
 
 .splash-roman{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-  font-size:11px;letter-spacing:6px;color:var(--gold);
-  text-transform:uppercase;
+  font-family:var(--cn);font-weight:300;
+  font-size:13px;letter-spacing:8px;color:var(--gold);
   margin-bottom:32px;opacity:0;
   animation:fadeUp 1.4s var(--ease) .3s forwards;
+  text-shadow:0 0 16px rgba(201,169,97,.4);
 }
 .splash-mark{
   font-family:var(--serif);font-weight:500;
@@ -169,36 +181,58 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   color:var(--ash);letter-spacing:2px;
   opacity:0;animation:fadeUp 1.4s var(--ease) 1.5s forwards;
 }
+.splash-cn-mark{
+  font-family:var(--cn);font-weight:300;
+  font-size:14px;letter-spacing:14px;
+  color:rgba(201,169,97,.78);text-align:center;
+  margin-top:14px;padding-left:14px;
+  opacity:0;animation:fadeUp 1.4s var(--ease) 1s forwards;
+}
 .splash-cn{
   position:absolute;bottom:48px;left:0;right:0;text-align:center;
   font-family:var(--cn);font-size:12px;letter-spacing:8px;
-  color:var(--ash);font-weight:300;
-  opacity:0;animation:fadeUp 1.4s var(--ease) 2s forwards;
+  color:var(--gold);font-weight:300;opacity:0;
+  animation:fadeUp 1.4s var(--ease) 2s forwards;
+  text-shadow:0 0 16px rgba(201,169,97,.4);
 }
+.splash-cn.show{opacity:.85}
 .splash-status{
   position:absolute;bottom:20px;left:0;right:0;text-align:center;
   font-family:var(--serif);font-style:italic;font-size:9px;
   color:var(--shade);letter-spacing:2px;
 }
 
-/* ============== Login · 编辑式 ============== */
+/* ============== Login · 编辑式 (v8) ============== */
 #login.page{
-  background:radial-gradient(ellipse at 50% 30%,#0A0608 0%,#000 80%);
-  padding:80px 32px 40px;
+  background:
+    radial-gradient(ellipse at 50% 18%, rgba(201,169,97,.12) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 30%, #120A0A 0%, #050303 80%);
+  padding:80px 32px 56px;
   display:flex;flex-direction:column;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
 }
+/* 四角金箔 frame — 上面两个 + 下面两个 */
 #login::before,#login::after{
-  content:'';position:absolute;width:40px;height:40px;
-  border:1px solid rgba(201,169,97,.22);pointer-events:none;
+  content:'';position:absolute;width:48px;height:48px;
+  border:1px solid rgba(201,169,97,.5);pointer-events:none;
+  box-shadow:0 0 16px -6px rgba(201,169,97,.35);
 }
 #login::before{top:24px;left:24px;border-right:none;border-bottom:none}
 #login::after{top:24px;right:24px;border-left:none;border-bottom:none}
+/* 底部装饰光晕 */
+.login-aura{
+  position:absolute;left:50%;bottom:-120px;
+  width:300px;height:300px;
+  background:radial-gradient(circle, rgba(201,169,97,.18) 0%, transparent 60%);
+  transform:translateX(-50%);pointer-events:none;
+  filter:blur(24px);
+}
 .login-roman{
-  font-family:var(--serif);font-style:italic;font-size:11px;
-  color:var(--gold);letter-spacing:4px;text-transform:uppercase;
+  font-family:var(--cn);font-weight:300;font-size:13px;
+  color:var(--gold);letter-spacing:6px;
   text-align:center;
+  text-shadow:0 0 14px rgba(201,169,97,.4);
 }
 .login-mark{
   font-family:var(--serif);font-weight:500;
@@ -213,18 +247,54 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   width:48px;height:1px;background:var(--gold);
   margin:32px auto;
 }
+/* Logo 下中文副标 */
+.login-cn-mark{
+  font-family:var(--cn);font-weight:300;
+  font-size:13px;letter-spacing:10px;
+  color:rgba(201,169,97,.75);text-align:center;
+  margin-top:10px;padding-left:10px;
+}
 .login-tag{
-  font-family:var(--serif);font-style:italic;font-size:12px;
+  font-family:var(--cn);font-weight:300;font-size:13px;
+  color:var(--gold);text-align:center;letter-spacing:6px;
+  margin-bottom:6px;opacity:.85;
+}
+.login-tag-en{
+  font-family:var(--serif);font-style:italic;font-size:11px;
   color:var(--ash);text-align:center;letter-spacing:1.5px;
   margin-bottom:56px;
 }
+/* 密码 reveal 按钮 */
+.pw-row{position:relative;display:flex;align-items:center}
+.pw-row input{flex:1;padding-right:48px}
+.pw-eye{
+  position:absolute;right:0;bottom:14px;
+  font-family:var(--cn);font-size:12px;font-weight:400;
+  color:var(--gold);background:none;border:none;
+  padding:6px 4px;cursor:pointer;
+  letter-spacing:1px;
+  border-bottom:1px solid rgba(201,169,97,.4);
+  transition:all 300ms var(--ease);
+}
+.pw-eye:hover{color:var(--gold-light);border-bottom-color:var(--gold)}
+.pw-eye .eye-off{display:none}
+.pw-eye.on .eye-on{display:none}
+.pw-eye.on .eye-off{display:inline}
 
 .mode-row{
   display:flex;justify-content:center;gap:0;
-  border-top:1px solid var(--edge);
-  border-bottom:1px solid var(--edge);
-  margin-bottom:48px;
+  border-top:1px solid rgba(201,169,97,.25);
+  border-bottom:1px solid rgba(201,169,97,.25);
+  margin-bottom:48px;position:relative;
 }
+.mode-row::before,.mode-row::after{
+  content:'';position:absolute;left:50%;
+  width:6px;height:6px;background:var(--gold);
+  transform:translateX(-50%) rotate(45deg);
+  box-shadow:0 0 8px rgba(201,169,97,.6);
+}
+.mode-row::before{top:-3px}
+.mode-row::after{bottom:-3px}
 .mode-btn{
   flex:1;padding:18px 0;
   font-family:var(--serif);font-size:11px;font-weight:500;
@@ -233,33 +303,41 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   position:relative;
   transition:color 300ms var(--ease);
 }
-.mode-btn+.mode-btn{border-left:1px solid var(--edge)}
-.mode-btn.on{color:var(--gold)}
+.mode-btn+.mode-btn{border-left:1px solid rgba(201,169,97,.18)}
+.mode-btn.on{color:var(--gold);text-shadow:0 0 12px rgba(201,169,97,.4)}
 .mode-btn.on::after{
   content:'';position:absolute;left:50%;bottom:-1px;
-  width:24px;height:1px;background:var(--gold);
+  width:32px;height:1px;background:var(--gold);
   transform:translateX(-50%);
+  box-shadow:0 0 8px rgba(201,169,97,.6);
 }
 
-.field{margin-bottom:36px}
+.field{margin-bottom:36px;position:relative}
+/* 左侧装饰短金线 */
+.field::before{
+  content:'';position:absolute;left:-12px;top:6px;
+  width:6px;height:1px;background:var(--gold);
+  opacity:.6;
+}
 .field-label{
   font-family:var(--serif);font-style:italic;font-size:10px;
-  letter-spacing:2px;color:var(--ash);
+  letter-spacing:2px;color:var(--gold);opacity:.7;
   margin-bottom:14px;text-transform:uppercase;
-  transition:color 300ms;
+  transition:all 300ms;
 }
-.field.focused .field-label{color:var(--gold)}
+.field.focused .field-label{opacity:1;letter-spacing:3px}
 .field input{
   width:100%;font-family:var(--serif);font-size:22px;font-weight:400;
   color:var(--bone);padding:6px 0 14px;letter-spacing:.5px;
-  border-bottom:1px solid var(--edge);
+  border-bottom:1px solid rgba(201,169,97,.3);
   transition:all 400ms var(--ease);
   background:transparent;
 }
 .field input:focus{
   border-bottom-color:var(--gold);
-  box-shadow:0 1px 0 rgba(201,169,97,.6),0 8px 24px -12px rgba(201,169,97,.2);
+  box-shadow:0 1px 0 rgba(201,169,97,.7),0 12px 32px -16px rgba(201,169,97,.4);
 }
+.field input::placeholder{color:rgba(201,169,97,.25);font-style:italic}
 
 .cta{
   display:block;width:100%;
@@ -994,43 +1072,53 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   <div class="pages">
     <!-- ─── Splash ─── -->
     <div id="splash" class="page active">
-      <div class="splash-roman">EST · MMXXVI</div>
+      <div class="splash-roman">壹 · 序</div>
       <div class="splash-mark">VELVET</div>
+      <div class="splash-cn-mark">天 鹅 绒</div>
       <div class="splash-line"></div>
       <div class="splash-est">PRIVATE THINGS · QUIETLY EXCHANGED</div>
-      <div class="splash-cn">私 藏 · 流 转</div>
+      <div class="splash-cn">私 藏 · 流 转 · 懂 的 人 来</div>
       <div class="splash-status" id="api-status">CONNECTING</div>
     </div>
 
     <!-- ─── Login ─── -->
     <div id="login" class="page">
-      <div class="login-roman">EST · MMXXVI</div>
+      <div class="login-aura"></div>
+      <div class="login-roman">壹 · 入 帘</div>
       <div class="login-mark">VELVET</div>
+      <div class="login-cn-mark">天 鹅 绒</div>
       <div class="login-line"></div>
-      <div class="login-tag">Touch what was touched.</div>
+      <div class="login-tag">触 此 物 · 知 此 心</div>
+      <div class="login-tag-en">Touch what was touched.</div>
 
       <div class="mode-row">
-        <button class="mode-btn on" id="mode-login" type="button">SIGN IN</button>
-        <button class="mode-btn" id="mode-register" type="button">REGISTER</button>
+        <button class="mode-btn on" id="mode-login" type="button">入 内 · SIGN IN</button>
+        <button class="mode-btn" id="mode-register" type="button">入 籍 · REGISTER</button>
       </div>
 
       <div class="field" id="field-username">
-        <div class="field-label">Username</div>
-        <input id="login-account" type="text" autocomplete="off" placeholder="字母数字下划线">
+        <div class="field-label">名 帖 · USERNAME</div>
+        <input id="login-account" type="text" autocomplete="off" placeholder="字母 / 数字 / 下划线">
       </div>
 
       <div class="field" id="field-nickname" style="display:none">
-        <div class="field-label">Nickname</div>
-        <input id="login-nickname" type="text" autocomplete="off" placeholder="别人会看到的名字">
+        <div class="field-label">雅 号 · NICKNAME</div>
+        <input id="login-nickname" type="text" autocomplete="off" placeholder="别人看到的名字">
       </div>
 
-      <div class="field">
-        <div class="field-label">Password</div>
-        <input id="login-password" type="password" autocomplete="off" placeholder="至少 8 位">
+      <div class="field field-password">
+        <div class="field-label">暗 语 · PASSWORD</div>
+        <div class="pw-row">
+          <input id="login-password" type="password" autocomplete="off" placeholder="6 位以上 · 字母 + 数字">
+          <button type="button" class="pw-eye" id="pw-eye" aria-label="显示密码">
+            <span class="eye-on">显</span>
+            <span class="eye-off">隐</span>
+          </button>
+        </div>
       </div>
 
-      <button class="cta" id="login-cta" type="button">ENTER VELVET</button>
-      <div class="legal">By entering, you agree to our private terms.</div>
+      <button class="cta" id="login-cta" type="button">入 · ENTER VELVET</button>
+      <div class="legal">入此门 · 即默许私下交流之约<br><span style="opacity:.6">By entering, you agree to our private terms.</span></div>
     </div>
 
     <!-- ─── Feed ─── -->
@@ -1291,7 +1379,10 @@ async function doAuth() {
       showToast('用户名 3-32 位字母数字下划线'); return;
     }
     if (!nickname) { showToast('请填写昵称'); return; }
-    if (password.length < 8) { showToast('密码至少 8 位'); return; }
+    if (password.length < 6) { showToast('密码至少 6 位'); return; }
+    if (!/[a-zA-Z]/.test(password) || !/\d/.test(password)) {
+      showToast('密码需包含字母和数字'); return;
+    }
   }
 
   const cta = document.getElementById('login-cta');
@@ -1773,6 +1864,14 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('publish-link')?.addEventListener('click', () => goPage('publish'));
   document.getElementById('logout-btn')?.addEventListener('click', doLogout);
   document.getElementById('my-pieces-btn')?.addEventListener('click', viewMyPieces);
+  // 密码 reveal
+  document.getElementById('pw-eye')?.addEventListener('click', () => {
+    const inp = document.getElementById('login-password');
+    const btn = document.getElementById('pw-eye');
+    const isPw = inp.type === 'password';
+    inp.type = isPw ? 'text' : 'password';
+    btn.classList.toggle('on', isPw);
+  });
   document.getElementById('pub-submit-btn')?.addEventListener('click', doPublish);
   document.getElementById('toggle-price')?.addEventListener('click', () => {
     state.pubPrice = !state.pubPrice;
