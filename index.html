@@ -113,10 +113,9 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .scrollable::-webkit-scrollbar{display:none}
 
 /* ============== Splash · editorial 慢入场 (v5) ============== */
-#splash{
+#splash.page{
   background:radial-gradient(ellipse at 50% 40%,#0A0608 0%,#000 75%);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  position:relative;
 }
 #splash::before,#splash::after{
   content:'';position:absolute;width:56px;height:56px;
@@ -183,12 +182,12 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 }
 
 /* ============== Login · 编辑式 ============== */
-#login{
+#login.page{
   background:radial-gradient(ellipse at 50% 30%,#0A0608 0%,#000 80%);
   padding:80px 32px 40px;
   display:flex;flex-direction:column;
   overflow-y:auto;
-  position:relative;
+  -webkit-overflow-scrolling:touch;
 }
 #login::before,#login::after{
   content:'';position:absolute;width:40px;height:40px;
