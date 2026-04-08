@@ -248,9 +248,53 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .login-aura{
   position:absolute;left:50%;bottom:-160px;
   width:360px;height:360px;
-  background:radial-gradient(circle, rgba(201,169,97,.15) 0%, transparent 60%);
+  background:radial-gradient(circle, rgba(201,169,97,.18) 0%, transparent 60%);
   transform:translateX(-50%);pointer-events:none;
   filter:blur(32px);
+}
+
+/* Logo 上方装饰 ornament */
+.ornament-top{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  margin-bottom:24px;
+}
+.ornament-top .o-line{
+  width:48px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:.8;
+}
+.ornament-top .o-diamond{
+  width:6px;height:6px;background:var(--gold);
+  transform:rotate(45deg);
+  box-shadow:0 0 14px rgba(201,169,97,.7);
+}
+
+/* 飘浮金尘粒子 */
+.dust{
+  position:absolute;inset:0;pointer-events:none;
+  overflow:hidden;z-index:0;
+}
+.dust i{
+  position:absolute;
+  width:2px;height:2px;
+  background:var(--gold);border-radius:50%;
+  opacity:0;
+  box-shadow:0 0 6px rgba(201,169,97,.8);
+  animation:dustFloat 14s var(--ease) infinite;
+}
+.dust i:nth-child(1){left:12%;top:20%;animation-delay:0s}
+.dust i:nth-child(2){left:84%;top:18%;animation-delay:1.2s;width:1px;height:1px}
+.dust i:nth-child(3){left:25%;top:65%;animation-delay:2.5s}
+.dust i:nth-child(4){left:78%;top:72%;animation-delay:3.8s;width:1px;height:1px}
+.dust i:nth-child(5){left:50%;top:8%;animation-delay:5s}
+.dust i:nth-child(6){left:18%;top:88%;animation-delay:6.5s}
+.dust i:nth-child(7){left:88%;top:55%;animation-delay:8s;width:3px;height:3px}
+.dust i:nth-child(8){left:8%;top:42%;animation-delay:9.5s;width:1px;height:1px}
+@keyframes dustFloat{
+  0%,100%{opacity:0;transform:translateY(0)}
+  20%{opacity:.6}
+  80%{opacity:.3}
+  50%{opacity:.7;transform:translateY(-12px)}
 }
 .login-roman{
   font-family:var(--cn);font-weight:300;font-size:13px;
@@ -336,15 +380,14 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .mode-row::after{bottom:-2px}
 .mode-btn{
   flex:1;padding:22px 0;
-  font-family:var(--cn);font-size:18px;font-weight:400;
-  letter-spacing:8px;
+  font-family:var(--cn);font-size:19px;font-weight:400;
+  letter-spacing:8px;text-indent:8px;text-align:center;
   color:var(--ash);
   position:relative;
   transition:all 400ms var(--ease);
-  padding-left:8px;
 }
 .mode-btn+.mode-btn{border-left:1px solid rgba(201,169,97,.14)}
-.mode-btn.on{color:var(--gold);letter-spacing:10px;text-shadow:0 0 18px rgba(201,169,97,.5)}
+.mode-btn.on{color:var(--gold);letter-spacing:10px;text-indent:10px;text-shadow:0 0 18px rgba(201,169,97,.5)}
 .mode-btn.on::after{
   content:'';position:absolute;left:50%;bottom:-1px;
   width:32px;height:1px;background:var(--gold);
@@ -376,9 +419,9 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 
 .cta{
   display:block;width:100%;
-  margin-top:36px;padding:24px 0;
-  font-family:var(--cn);font-size:18px;font-weight:400;
-  letter-spacing:8px;padding-left:8px;
+  margin-top:36px;padding:26px 0;
+  font-family:var(--cn);font-size:20px;font-weight:400;
+  letter-spacing:8px;text-indent:8px;text-align:center;
   color:var(--gold);
   background:linear-gradient(180deg,rgba(201,169,97,.06) 0%,rgba(201,169,97,.02) 100%);
   border:1px solid var(--gold);
@@ -1208,6 +1251,12 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
     <!-- ─── Login ─── -->
     <div id="login" class="page">
       <div class="login-aura"></div>
+      <div class="dust"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="ornament-top">
+        <span class="o-line"></span>
+        <span class="o-diamond"></span>
+        <span class="o-line"></span>
+      </div>
       <div class="login-mark">VELVET</div>
       <div class="login-cn-mark">天 鹅 绒</div>
       <div class="login-line"></div>
