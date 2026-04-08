@@ -9,7 +9,7 @@
 <title>VELVET · Private things, quietly exchanged</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@200;300;400;500;600&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================================
    VELVET v4 · Editorial Luxury
@@ -33,8 +33,8 @@
 
   --serif: 'Cormorant Garamond', 'Noto Serif SC', serif;
   --sans:  'Inter', -apple-system, system-ui, sans-serif;
-  --cn:    'ZCOOL XiaoWei', 'Noto Serif SC', 'STSongti-SC-Light', 'Songti SC', serif;
-  --cn-brush: 'Ma Shan Zheng', 'ZCOOL XiaoWei', serif;
+  /* 中文用 Noto Serif SC — 衬线宋体跟 Cormorant Garamond 同家族风格 */
+  --cn:    'Noto Serif SC', 'Cormorant Garamond', 'Songti SC', 'STSongti-SC-Light', serif;
 
   --ease:  cubic-bezier(.2,.8,.2,1);
 }
@@ -194,19 +194,20 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   opacity:0;animation:fadeUp 1.4s var(--ease) 1.5s forwards;
 }
 .splash-cn-mark{
-  font-family:var(--cn);font-weight:400;
-  font-size:15px;letter-spacing:8px;
-  color:rgba(201,169,97,.72);text-align:center;
-  margin-top:18px;padding-left:8px;
+  font-family:var(--cn);font-weight:300;
+  font-size:18px;letter-spacing:10px;
+  color:rgba(201,169,97,.78);text-align:center;
+  margin-top:20px;padding-left:10px;
   opacity:0;animation:fadeUp 1.4s var(--ease) 1s forwards;
+  text-shadow:0 0 16px rgba(201,169,97,.3);
 }
 .splash-cn{
   position:absolute;bottom:52px;left:0;right:0;text-align:center;
-  font-family:var(--cn);font-size:13px;letter-spacing:5px;
-  color:var(--gold);font-weight:400;opacity:0;
+  font-family:var(--cn);font-size:15px;letter-spacing:6px;
+  color:var(--gold);font-weight:300;opacity:0;
   animation:fadeUp 1.4s var(--ease) 2s forwards;
-  text-shadow:0 0 16px rgba(201,169,97,.45);
-  padding-left:5px;
+  text-shadow:0 0 18px rgba(201,169,97,.5);
+  padding-left:6px;
 }
 .splash-cn.show{opacity:.85}
 .splash-status{
@@ -279,22 +280,23 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 }
 /* Logo 下中文副标 */
 .login-cn-mark{
-  font-family:var(--cn);font-weight:400;
-  font-size:14px;letter-spacing:7px;
-  color:rgba(201,169,97,.7);text-align:center;
-  margin-top:14px;padding-left:7px;
+  font-family:var(--cn);font-weight:300;
+  font-size:17px;letter-spacing:9px;
+  color:rgba(201,169,97,.75);text-align:center;
+  margin-top:16px;padding-left:9px;
+  text-shadow:0 0 14px rgba(201,169,97,.3);
 }
 .login-tag{
-  font-family:var(--cn);font-weight:400;font-size:15px;
-  color:var(--gold);text-align:center;letter-spacing:5px;
-  margin-bottom:6px;opacity:.92;
-  text-shadow:0 0 18px rgba(201,169,97,.35);
-  padding-left:5px;
+  font-family:var(--cn);font-weight:400;font-size:17px;
+  color:var(--gold);text-align:center;letter-spacing:6px;
+  margin-bottom:8px;opacity:.95;
+  text-shadow:0 0 20px rgba(201,169,97,.45);
+  padding-left:6px;
 }
 .login-tag-en{
-  font-family:var(--serif);font-style:italic;font-size:12px;
+  font-family:var(--serif);font-style:italic;font-size:13px;
   color:var(--ash);text-align:center;letter-spacing:2px;
-  margin-bottom:56px;opacity:.6;
+  margin-bottom:48px;opacity:.6;
 }
 /* 密码 reveal 按钮 */
 .pw-row{position:relative;display:flex;align-items:center}
@@ -334,15 +336,15 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .mode-row::after{bottom:-2px}
 .mode-btn{
   flex:1;padding:22px 0;
-  font-family:var(--cn);font-size:16px;font-weight:400;
-  letter-spacing:6px;
+  font-family:var(--cn);font-size:18px;font-weight:400;
+  letter-spacing:8px;
   color:var(--ash);
   position:relative;
   transition:all 400ms var(--ease);
-  padding-left:6px;
+  padding-left:8px;
 }
 .mode-btn+.mode-btn{border-left:1px solid rgba(201,169,97,.14)}
-.mode-btn.on{color:var(--gold);letter-spacing:8px;text-shadow:0 0 16px rgba(201,169,97,.45)}
+.mode-btn.on{color:var(--gold);letter-spacing:10px;text-shadow:0 0 18px rgba(201,169,97,.5)}
 .mode-btn.on::after{
   content:'';position:absolute;left:50%;bottom:-1px;
   width:32px;height:1px;background:var(--gold);
@@ -350,15 +352,15 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   box-shadow:0 0 8px rgba(201,169,97,.6);
 }
 
-.field{margin-bottom:32px;position:relative}
+.field{margin-bottom:34px;position:relative}
 .field-label{
-  font-family:var(--cn);font-weight:400;font-size:13px;
-  letter-spacing:5px;color:var(--gold);opacity:.82;
+  font-family:var(--cn);font-weight:400;font-size:15px;
+  letter-spacing:6px;color:var(--gold);opacity:.85;
   margin-bottom:14px;
-  padding-left:5px;
+  padding-left:6px;
   transition:all 300ms;
 }
-.field.focused .field-label{opacity:1;letter-spacing:7px;padding-left:7px}
+.field.focused .field-label{opacity:1;letter-spacing:8px;padding-left:8px}
 .field input{
   width:100%;font-family:var(--serif);font-size:22px;font-weight:400;
   color:var(--bone);padding:6px 0 14px;letter-spacing:.5px;
@@ -374,9 +376,9 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 
 .cta{
   display:block;width:100%;
-  margin-top:36px;padding:22px 0;
-  font-family:var(--cn);font-size:16px;font-weight:400;
-  letter-spacing:6px;padding-left:6px;
+  margin-top:36px;padding:24px 0;
+  font-family:var(--cn);font-size:18px;font-weight:400;
+  letter-spacing:8px;padding-left:8px;
   color:var(--gold);
   background:linear-gradient(180deg,rgba(201,169,97,.06) 0%,rgba(201,169,97,.02) 100%);
   border:1px solid var(--gold);
@@ -409,9 +411,11 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 
 .legal{
   margin-top:32px;text-align:center;
-  font-family:var(--serif);font-style:italic;font-size:11px;
-  color:var(--shade);letter-spacing:.5px;line-height:1.8;
+  font-family:var(--cn);font-weight:300;font-size:13px;
+  color:var(--ash);letter-spacing:3px;line-height:1.9;opacity:.7;
+  padding-left:3px;
 }
+.legal span{font-family:var(--serif);font-style:italic;letter-spacing:1px}
 
 /* ============== Header（顶部极简文字 nav） ============== */
 .header{
@@ -751,6 +755,93 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .detail-finis::before,.detail-finis::after{
   content:'';width:24px;height:1px;background:var(--gold);opacity:.6;
 }
+
+/* ============== 评论区（私语） ============== */
+.comments{
+  margin-top:48px;padding-top:40px;
+  border-top:1px solid var(--edge);
+}
+.comments-head{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:32px;
+}
+.comments-head .cn{
+  font-family:var(--cn);font-weight:400;font-size:15px;
+  color:var(--gold);letter-spacing:6px;padding-left:6px;
+  text-shadow:0 0 14px rgba(201,169,97,.4);
+}
+.comments-head .hairline{
+  flex:1;height:1px;
+  background:linear-gradient(90deg,rgba(201,169,97,.5),transparent);
+}
+.comments-head .en{
+  font-family:var(--serif);font-style:italic;font-size:10px;
+  color:var(--ash);letter-spacing:3px;text-transform:uppercase;
+}
+.comment-list{display:flex;flex-direction:column;gap:0;margin-bottom:32px}
+.comment-loading,.comment-empty{
+  text-align:center;padding:32px 16px;
+  font-family:var(--cn);font-weight:300;font-size:14px;
+  color:var(--ash);letter-spacing:3px;line-height:1.9;
+}
+.comment-empty span{
+  display:block;margin-top:8px;font-size:12px;
+  color:var(--shade);letter-spacing:2px;
+}
+.comment{
+  padding:20px 0;
+  border-bottom:1px solid var(--edge);
+}
+.comment:last-child{border-bottom:none}
+.comment-meta{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:10px;
+}
+.comment-meta .who{
+  font-family:var(--cn);font-weight:400;font-size:14px;
+  color:var(--gold);letter-spacing:2px;
+  text-shadow:0 0 12px rgba(201,169,97,.3);
+}
+.comment-meta .dot{
+  width:3px;height:3px;background:var(--gold);
+  opacity:.5;
+}
+.comment-meta .when{
+  font-family:var(--serif);font-style:italic;font-size:10px;
+  color:var(--shade);letter-spacing:1.5px;
+}
+.comment-body{
+  font-family:var(--cn);font-weight:300;font-size:15px;
+  color:var(--bone);line-height:1.85;letter-spacing:1px;
+  padding-left:2px;
+}
+.comment-compose{
+  position:relative;
+  padding:20px 18px;
+  background:rgba(201,169,97,.03);
+  border:1px solid rgba(201,169,97,.18);
+}
+.comment-compose textarea{
+  width:100%;min-height:80px;
+  font-family:var(--cn);font-weight:300;font-size:14px;
+  color:var(--bone);background:transparent;
+  border:none;outline:none;resize:none;
+  letter-spacing:1px;line-height:1.7;
+}
+.comment-compose textarea::placeholder{
+  color:rgba(201,169,97,.35);font-style:italic;
+}
+.comment-send{
+  position:absolute;right:16px;bottom:14px;
+  font-family:var(--cn);font-weight:400;font-size:13px;
+  color:var(--gold);background:rgba(201,169,97,.06);
+  border:1px solid var(--gold);
+  padding:6px 16px;cursor:pointer;
+  letter-spacing:4px;padding-left:6px;
+  transition:all 300ms var(--ease);
+}
+.comment-send:hover{background:var(--gold);color:var(--void)}
+.comment-send:disabled{opacity:.5;cursor:wait}
 
 .detail-meta{
   display:flex;flex-wrap:wrap;justify-content:center;gap:32px;
@@ -1622,6 +1713,23 @@ function renderDetail(item) {
         <div class="by">CURATED BY</div>
         <div class="name">${escapeHtml(item.userNickname)}</div>
       </div>
+
+      <!-- 评论区 -->
+      <section class="comments">
+        <div class="comments-head">
+          <span class="cn">私 语</span>
+          <span class="hairline"></span>
+          <span class="en">NOTES</span>
+        </div>
+        <div id="comment-list" class="comment-list">
+          <div class="comment-loading">— 正在收集私语 —</div>
+        </div>
+        <div class="comment-compose">
+          <textarea id="comment-input" placeholder="写下你的私语…" maxlength="500"></textarea>
+          <button class="comment-send" id="comment-send">寄 出</button>
+        </div>
+      </section>
+
       <div class="detail-finis">FINIS</div>
     </div>
   `;
@@ -1632,6 +1740,56 @@ function renderDetail(item) {
   const fav = document.getElementById('detail-fav');
   fav.classList.toggle('faved', item.favorited);
   fav.textContent = item.favorited ? '♥' : '♡';
+  // 异步加载评论
+  loadComments(item.id);
+  document.getElementById('comment-send')?.addEventListener('click', () => sendComment(item.id));
+}
+
+async function loadComments(momentId) {
+  const list = document.getElementById('comment-list');
+  if (!list) return;
+  try {
+    const data = await api(`/api/v1/comments/public/moment/${momentId}?page=0&size=20`);
+    const items = data.content || [];
+    if (items.length === 0) {
+      list.innerHTML = '<div class="comment-empty">还没有人留下私语<br><span>第一句 · 由你写下</span></div>';
+      return;
+    }
+    list.innerHTML = items.map(c => `
+      <article class="comment">
+        <div class="comment-meta">
+          <span class="who">${escapeHtml(c.userNickname || '匿名')}</span>
+          <span class="dot"></span>
+          <span class="when">${formatTime(c.createdAt)}</span>
+        </div>
+        <p class="comment-body">${escapeHtml(c.content)}</p>
+      </article>
+    `).join('');
+  } catch(e) {
+    list.innerHTML = '<div class="comment-empty">— 暂时听不见私语 —</div>';
+  }
+}
+
+async function sendComment(momentId) {
+  const input = document.getElementById('comment-input');
+  const text = (input?.value || '').trim();
+  if (!text) { showToast('写一句吧'); return; }
+  if (!state.token) { showToast('请先登录'); return; }
+  const btn = document.getElementById('comment-send');
+  btn.disabled = true; btn.textContent = '寄出中…';
+  try {
+    await api('/api/v1/comments', {
+      method: 'POST',
+      body: JSON.stringify({momentId, content: text}),
+    });
+    input.value = '';
+    await loadComments(momentId);
+    showToast('已 寄 出');
+  } catch(e) {
+    showToast(e.message);
+  } finally {
+    btn.disabled = false; btn.textContent = '寄 出';
+  }
 }
 
 async function toggleFav() {
