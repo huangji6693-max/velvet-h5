@@ -9,7 +9,7 @@
 <title>VELVET · 私 藏 · 流 转</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@200;300;400;500;600;700&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&family=Long+Cang&display=swap" rel="stylesheet">
 <style>
 /* ============================================================================
    VELVET v4 · Editorial Luxury
@@ -27,14 +27,69 @@
   --gold-light: #E8C879;
   --gold-deep: #8C7536;
 
-  --bone: #F5F1E8;       /* 主文本 — 暖白带象牙底 */
-  --ash:  #8B8680;       /* 次要文本 */
-  --shade:#4A4640;       /* 三级 */
+  /* 金色阶梯 — 6 层 alpha */
+  --gold-90: rgba(201,169,97,.90);
+  --gold-70: rgba(201,169,97,.70);
+  --gold-50: rgba(201,169,97,.50);
+  --gold-30: rgba(201,169,97,.30);
+  --gold-15: rgba(201,169,97,.15);
+  --gold-08: rgba(201,169,97,.08);
+  --gold-04: rgba(201,169,97,.04);
 
-  --serif: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  --bone: #F5E6C8;       /* 主文本 — 偏金奶油 */
+  --bone-soft: #E8D4A0;  /* 略浅 */
+  --ash:  #8B7E5C;       /* 次要文本 — 偏金 */
+  --shade:#4A4220;       /* 三级 — 暗金 */
+
+  /* v16: 英文 Cormorant + 中文 ZCOOL XiaoWei (仿宋切角飘逸) 双字体 fallback
+     这样 serif 应用到中英混排时，英文走 Cormorant，中文自动走 ZCOOL */
+  --serif: 'Cormorant Garamond', 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
   --sans:  'Inter', -apple-system, system-ui, sans-serif;
-  /* 中文用 Noto Serif SC — 衬线宋体跟 Cormorant Garamond 同家族风格 */
-  --cn:    'Noto Serif SC', 'Cormorant Garamond', 'Songti SC', 'STSongti-SC-Light', serif;
+  --cn:        'ZCOOL XiaoWei', 'Noto Serif SC', 'Songti SC', serif;
+  --cn-display:'Ma Shan Zheng', 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+  --cn-brush:  'Long Cang', 'ZCOOL XiaoWei', 'Noto Serif SC', cursive;
+
+  /* ===== Type Scale (Major Third 1.25) ===== */
+  --t-2xs: 10px;
+  --t-xs:  11px;     /* eyebrow / caption / 罗马字 */
+  --t-sm:  13px;     /* label / 小按钮 */
+  --t-md:  15px;     /* body / nav / button */
+  --t-lg:  19px;     /* input / 大按钮 */
+  --t-xl:  24px;     /* h3 */
+  --t-2xl: 32px;     /* h2 */
+  --t-3xl: 44px;     /* h1 / 价格 */
+  --t-4xl: 60px;     /* logo (login) */
+  --t-5xl: 84px;     /* hero (splash) */
+
+  /* ===== Letter spacing ===== */
+  --ls-tight: -0.01em;
+  --ls-normal: 0;
+  --ls-en-button: 0.16em;
+  --ls-en-label: 0.18em;
+  --ls-cn-display: 0.36em;
+  --ls-cn-heading: 0.22em;
+  --ls-cn-button: 0.28em;
+  --ls-cn-label: 0.16em;
+  --ls-cn-body: 0.04em;
+
+  /* ===== Line height ===== */
+  --lh-tight: 1;
+  --lh-display: 1.05;
+  --lh-heading: 1.2;
+  --lh-body: 1.65;
+  --lh-relaxed: 1.85;
+
+  /* ===== Spacing scale (8px baseline) ===== */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --sp-10: 128px;
 
   --ease:  cubic-bezier(.2,.8,.2,1);
 }
@@ -221,8 +276,9 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   background:
     radial-gradient(ellipse at 50% 14%, rgba(201,169,97,.16) 0%, transparent 42%),
     radial-gradient(ellipse at 50% 32%, #120A0A 0%, #050303 80%);
-  padding:64px 36px 48px;
-  display:flex;flex-direction:column;
+  padding:64px 36px 64px;
+  /* v16 修复: block flow + scroll，避免 flex-shrink 压扁 .cta 到 2px */
+  display:block;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
   box-shadow:
@@ -230,6 +286,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
     inset 0 0 200px rgba(0,0,0,.88),
     inset 0 -120px 100px -50px rgba(0,0,0,.6);
 }
+.cta{flex-shrink:0;min-height:64px}
 /* 顶部 hairline + 底部 hairline 装饰 */
 #login::before{
   content:'';position:absolute;top:32px;left:50%;
@@ -297,24 +354,27 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   50%{opacity:.7;transform:translateY(-12px)}
 }
 .login-roman{
-  font-family:var(--cn);font-weight:200;font-size:13px;
-  color:var(--gold);letter-spacing:6px;
-  text-align:center;
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:var(--t-xs);
+  color:var(--gold);letter-spacing:var(--ls-en-label);
+  text-align:center;text-transform:uppercase;
   text-shadow:0 0 14px rgba(201,169,97,.4);
 }
 .login-mark{
   font-family:var(--serif);font-weight:500;
-  font-size:64px;letter-spacing:10px;text-align:center;
+  font-size:var(--t-4xl);
+  letter-spacing:0.18em;text-align:center;
   background:linear-gradient(180deg,#FAF4E6 0%,#E8C879 28%,#C9A961 56%,#8C7536 86%,#5A4820 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
-  margin-top:16px;padding-left:10px;line-height:1;
+  margin-top:var(--sp-3);
+  padding-left:0.18em;line-height:var(--lh-tight);
   filter:drop-shadow(0 0 56px rgba(201,169,97,.42)) drop-shadow(0 2px 14px rgba(201,169,97,.25));
 }
 .login-line{
   width:56px;height:1px;
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  margin:36px auto 28px;position:relative;
+  margin:var(--sp-7) auto var(--sp-5);position:relative;
 }
 .login-line::before{
   content:'';position:absolute;top:50%;left:50%;
@@ -325,50 +385,55 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 /* Logo 下中文副标 */
 .login-cn-mark{
   font-family:var(--cn);font-weight:200;
-  font-size:17px;letter-spacing:9px;
-  color:rgba(201,169,97,.75);text-align:center;
-  margin-top:16px;padding-left:9px;
+  font-size:var(--t-sm);
+  letter-spacing:var(--ls-cn-display);
+  color:var(--gold-70);text-align:center;
+  margin-top:var(--sp-3);padding-left:0.36em;
   text-shadow:0 0 14px rgba(201,169,97,.3);
 }
 .login-tag{
-  font-family:var(--cn);font-weight:200;font-size:17px;
-  color:var(--gold);text-align:center;letter-spacing:6px;
-  margin-bottom:8px;opacity:.95;
-  text-shadow:0 0 20px rgba(201,169,97,.45);
-  padding-left:6px;
+  font-family:var(--cn);font-weight:200;
+  font-size:var(--t-xl);
+  color:var(--gold);text-align:center;
+  letter-spacing:var(--ls-cn-heading);
+  margin-bottom:var(--sp-2);
+  text-shadow:0 0 24px rgba(201,169,97,.5);
+  padding-left:0.22em;line-height:var(--lh-display);
 }
 .login-tag-en{
-  font-family:var(--serif);font-style:italic;font-size:13px;
-  color:var(--ash);text-align:center;letter-spacing:2px;
-  margin-bottom:48px;opacity:.6;
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:var(--t-xs);
+  color:var(--ash);text-align:center;
+  letter-spacing:var(--ls-en-label);
+  text-transform:uppercase;
+  margin-bottom:var(--sp-7);
+  opacity:.7;
 }
-/* 密码 reveal 按钮 */
-.pw-row{position:relative;display:flex;align-items:center}
+/* 密码 reveal */
+.pw-row{position:relative;display:flex;align-items:flex-end}
 .pw-row input{flex:1;padding-right:64px}
 .pw-eye{
-  position:absolute;right:0;bottom:8px;
-  font-family:var(--cn);font-size:14px;font-weight:200;
-  color:var(--gold);background:rgba(201,169,97,.06);
-  border:1px solid rgba(201,169,97,.4);
+  position:absolute;right:0;bottom:10px;
+  font-family:var(--cn);font-weight:200;font-size:var(--t-sm);
+  color:var(--gold);background:var(--gold-08);
+  border:1px solid var(--gold-50);
   padding:6px 14px;cursor:pointer;
-  letter-spacing:2px;
+  letter-spacing:var(--ls-cn-button);
   transition:all 300ms var(--ease);
-  z-index:2;
+  z-index:2;line-height:1;
 }
-.pw-eye:hover{
-  color:var(--void);background:var(--gold);border-color:var(--gold);
-  box-shadow:0 0 16px -4px rgba(201,169,97,.5);
-}
+.pw-eye:hover{color:var(--void);background:var(--gold);border-color:var(--gold)}
 .pw-eye .eye-off{display:none}
-.pw-eye.on{background:rgba(201,169,97,.18);color:var(--gold-light)}
+.pw-eye.on{background:var(--gold-15);color:var(--gold-light)}
 .pw-eye.on .eye-on{display:none}
 .pw-eye.on .eye-off{display:inline}
 
+/* ===== mode 切换（登录/注册） ===== */
 .mode-row{
   display:flex;justify-content:center;gap:0;
-  border-top:1px solid rgba(201,169,97,.2);
-  border-bottom:1px solid rgba(201,169,97,.2);
-  margin-bottom:36px;position:relative;
+  border-top:1px solid var(--gold-30);
+  border-bottom:1px solid var(--gold-30);
+  margin-bottom:var(--sp-7);position:relative;
 }
 .mode-row::before,.mode-row::after{
   content:'';position:absolute;left:50%;
@@ -379,61 +444,92 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .mode-row::before{top:-2px}
 .mode-row::after{bottom:-2px}
 .mode-btn{
-  flex:1;padding:22px 0;
-  font-family:var(--cn);font-size:19px;font-weight:200;
-  letter-spacing:8px;text-indent:8px;text-align:center;
+  flex:1;
+  display:flex;align-items:center;justify-content:center;
+  height:60px;
+  font-family:var(--cn);font-weight:200;
+  font-size:var(--t-md);
+  letter-spacing:var(--ls-cn-button);
+  text-indent:var(--ls-cn-button);
   color:var(--ash);
-  position:relative;
+  position:relative;line-height:1;
   transition:all 400ms var(--ease);
 }
-.mode-btn+.mode-btn{border-left:1px solid rgba(201,169,97,.14)}
-.mode-btn.on{color:var(--gold);letter-spacing:10px;text-indent:10px;text-shadow:0 0 18px rgba(201,169,97,.5)}
+.mode-btn+.mode-btn{border-left:1px solid var(--gold-15)}
+.mode-btn.on{color:var(--gold);text-shadow:0 0 18px rgba(201,169,97,.5)}
 .mode-btn.on::after{
   content:'';position:absolute;left:50%;bottom:-1px;
   width:32px;height:1px;background:var(--gold);
   transform:translateX(-50%);
   box-shadow:0 0 8px rgba(201,169,97,.6);
 }
-
-.field{margin-bottom:34px;position:relative}
-.field-label{
-  font-family:var(--cn);font-weight:200;font-size:15px;
-  letter-spacing:6px;color:var(--gold);opacity:.85;
-  margin-bottom:14px;
-  padding-left:6px;
-  transition:all 300ms;
+.mode-btn .en{
+  display:block;
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:var(--t-2xs);text-transform:uppercase;
+  letter-spacing:var(--ls-en-label);text-indent:var(--ls-en-label);
+  margin-top:4px;opacity:.55;
 }
-.field.focused .field-label{opacity:1;letter-spacing:8px;padding-left:8px}
+
+/* ===== input 字段 ===== */
+.field{margin-bottom:var(--sp-6);position:relative}
+.field-label{
+  display:flex;align-items:baseline;gap:10px;
+  font-family:var(--cn);font-weight:200;
+  font-size:var(--t-sm);
+  letter-spacing:var(--ls-cn-label);
+  color:var(--gold);opacity:.85;
+  margin-bottom:var(--sp-3);
+  padding-left:2px;
+  transition:all 300ms;
+  line-height:1;
+}
+.field-label .en{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:var(--t-2xs);
+  letter-spacing:var(--ls-en-label);
+  opacity:.55;text-transform:uppercase;
+}
+.field.focused .field-label{opacity:1;color:var(--gold-light)}
 .field input{
-  width:100%;font-family:var(--serif);font-size:22px;font-weight:400;
-  color:var(--bone);padding:6px 0 14px;letter-spacing:.5px;
-  border-bottom:1px solid rgba(201,169,97,.22);
+  width:100%;font-family:var(--serif);font-weight:400;
+  font-size:var(--t-lg);
+  color:var(--bone);padding:6px 2px 14px;
+  letter-spacing:0.02em;
+  border-bottom:1px solid var(--gold-30);
   transition:all 400ms var(--ease);
-  background:transparent;
+  background:transparent;line-height:var(--lh-display);
 }
 .field input:focus{
   border-bottom-color:var(--gold);
   box-shadow:0 1px 0 rgba(201,169,97,.7),0 12px 32px -16px rgba(201,169,97,.35);
 }
-.field input::placeholder{color:rgba(245,241,232,.18);font-style:italic;font-size:14px}
+.field input::placeholder{
+  color:var(--gold-30);font-style:italic;
+  font-family:var(--cn);font-weight:200;
+  font-size:var(--t-md);letter-spacing:0.06em;
+}
 
+/* ===== CTA ===== */
 .cta{
   display:flex;align-items:center;justify-content:center;
   width:100%;height:64px;
-  margin-top:36px;
-  font-family:var(--cn);font-size:18px;font-weight:200;
-  letter-spacing:12px;text-indent:12px;
+  margin-top:var(--sp-6);
+  font-family:var(--cn);font-weight:200;
+  font-size:var(--t-md);
+  letter-spacing:var(--ls-cn-button);
+  text-indent:var(--ls-cn-button);
   color:var(--gold);
-  background:linear-gradient(180deg,rgba(201,169,97,.06) 0%,rgba(201,169,97,.02) 100%);
+  background:linear-gradient(180deg,var(--gold-08) 0%,var(--gold-04) 100%);
   border:1px solid var(--gold);
-  cursor:pointer;position:relative;
+  cursor:pointer;position:relative;line-height:1;
   transition:all 500ms var(--ease);
   box-shadow:
     0 1px 0 rgba(255,255,255,.05) inset,
     0 -1px 0 rgba(0,0,0,.3) inset,
     0 0 32px -8px rgba(201,169,97,.35),
     0 20px 40px -20px rgba(0,0,0,.8);
-  overflow:hidden;line-height:1;
+  overflow:hidden;
 }
 .cta::before{
   content:'';position:absolute;inset:0;
@@ -1245,30 +1341,47 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   color:var(--gold);cursor:pointer;
 }
 
-/* ============== Search ============== */
+/* ============== Search v16 ============== */
 #search.page{
   background:radial-gradient(ellipse at 50% 30%, #120A0A 0%, #050303 80%);
-  display:flex;flex-direction:column;
+}
+#search .scrollable{
+  padding-top:88px;
 }
 .search-header{
+  position:absolute;top:0;left:0;right:0;z-index:50;
   display:flex;align-items:center;gap:12px;
   padding:24px 20px 16px;
+  background:rgba(0,0,0,.92);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(201,169,97,.18);
 }
+.search-header .back-btn{
+  flex-shrink:0;
+  width:44px;height:44px;
+  background:none;border:none;
+  font-family:var(--serif);font-size:22px;
+  color:var(--gold);cursor:pointer;
+  z-index:51;
+  -webkit-tap-highlight-color:rgba(201,169,97,.2);
+}
+.search-header .back-btn:active{opacity:.5}
 .search-input{
-  flex:1;height:44px;
+  flex:1;min-width:0;height:44px;
   background:rgba(201,169,97,.04);
   border:1px solid rgba(201,169,97,.3);
   padding:0 16px;
   font-family:var(--serif);font-size:17px;
   color:var(--bone);letter-spacing:.5px;
+  -webkit-appearance:none;appearance:none;border-radius:0;
 }
 .search-input::placeholder{
-  font-family:var(--cn);font-style:italic;font-size:14px;
-  color:rgba(201,169,97,.4);letter-spacing:4px;
+  font-family:var(--cn);font-weight:200;font-style:italic;font-size:14px;
+  color:rgba(201,169,97,.4);letter-spacing:3px;
 }
 .search-input:focus{outline:none;border-color:var(--gold)}
-.search-results{padding:0}
+.search-input::-webkit-search-cancel-button{display:none}
+.search-results{padding:0 0 80px}
 .search-empty{
   text-align:center;padding:120px 32px;
 }
@@ -1657,17 +1770,17 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
       </div>
 
       <div class="field" id="field-username">
-        <div class="field-label">账 号</div>
+        <div class="field-label">账 号 <span class="en">Account</span></div>
         <input id="login-account" type="text" autocomplete="off" placeholder="字母 / 数字 / 下划线">
       </div>
 
       <div class="field" id="field-nickname" style="display:none">
-        <div class="field-label">昵 称</div>
+        <div class="field-label">昵 称 <span class="en">Name</span></div>
         <input id="login-nickname" type="text" autocomplete="off" placeholder="夜里 · 别人怎么叫你">
       </div>
 
       <div class="field field-password">
-        <div class="field-label">密 码</div>
+        <div class="field-label">密 码 <span class="en">Pass</span></div>
         <div class="pw-row">
           <input id="login-password" type="password" autocomplete="off" placeholder="6 位以上 · 字母 + 数字">
           <button type="button" class="pw-eye" id="pw-eye" aria-label="显示密码">
@@ -1688,10 +1801,10 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
           <div class="header-mark">VELVET</div>
           <div class="header-est">N° 001</div>
           <div class="header-spacer"></div>
-          <button class="header-link" id="search-link">寻 找</button>
-          <button class="header-link" id="chats-link">私 语</button>
-          <button class="header-link has-dot" id="notif-link">通 知</button>
-          <button class="header-link" id="profile-link">我 的</button>
+          <button class="header-link" id="search-link">寻 · Search</button>
+          <button class="header-link" id="chats-link">私 · Notes</button>
+          <button class="header-link has-dot" id="notif-link">音 · Notice</button>
+          <button class="header-link" id="profile-link">我 · Me</button>
         </div>
         <div class="header-line"></div>
       </div>
@@ -1812,19 +1925,20 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
     <!-- ─── 搜索 ─── -->
     <div id="search" class="page">
       <div class="search-header">
-        <button class="back-btn" onclick="goPage('feed')">←</button>
-        <input type="search" id="search-input" class="search-input"
-               placeholder="想找点什么…"
+        <button type="button" class="back-btn" id="search-back">←</button>
+        <input type="text" id="search-input" class="search-input"
+               placeholder="想 找 点 什 么…"
                autocomplete="off" autocorrect="off"
                autocapitalize="off" spellcheck="false"
-               enterkeyhint="search">
+               enterkeyhint="search"
+               inputmode="search">
       </div>
       <div class="scrollable">
         <div id="search-results" class="search-results">
           <div class="search-empty">
             <div class="search-empty-line"></div>
-            <div class="search-empty-cn">懂 的 人 · 自 然 知 道 找 什 么</div>
-            <div class="search-empty-tip">真丝 · 丝袜 · 私房 · 内衣 · 陪伴 …</div>
+            <div class="search-empty-cn">懂 的 人 · WHO  KNOWS</div>
+            <div class="search-empty-tip">真 丝 · 丝 袜 · 私 房 · 陪 伴 ……</div>
           </div>
         </div>
       </div>
@@ -2979,11 +3093,18 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('my-pieces-btn')?.addEventListener('click', viewMyPieces);
   document.getElementById('edit-profile-btn')?.addEventListener('click', openProfileEdit);
 
-  // v14/v15: 搜索 / 私语 / 编辑资料
+  // v14/v15/v16: 搜索 / 私语 / 编辑资料
   document.getElementById('search-link')?.addEventListener('click', () => {
     goPage('search');
-    // 不强制 focus — 移动端 Safari 不允许 click 之外的 focus
-    // 让用户主动点输入框
+  });
+  document.getElementById('search-back')?.addEventListener('click', () => {
+    document.getElementById('search-input')?.blur();
+    goPage('feed');
+  });
+  document.getElementById('search-back')?.addEventListener('touchend', e => {
+    e.preventDefault();
+    document.getElementById('search-input')?.blur();
+    goPage('feed');
   });
   document.getElementById('chats-link')?.addEventListener('click', () => {
     goPage('chats'); loadChats();
