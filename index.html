@@ -120,28 +120,39 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .scrollable{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .scrollable::-webkit-scrollbar{display:none}
 
-/* ============== Splash · editorial 慢入场 (v8) ============== */
+/* ============== Splash · editorial 慢入场 (v9) ============== */
 #splash.page{
   background:
-    radial-gradient(ellipse at 50% 38%, rgba(201,169,97,.14) 0%, transparent 35%),
-    radial-gradient(ellipse at 50% 40%, #120A0A 0%, #050303 75%);
+    radial-gradient(ellipse at 50% 36%, rgba(201,169,97,.16) 0%, transparent 38%),
+    radial-gradient(ellipse at 50% 42%, #120A0A 0%, #050303 78%);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:
+    inset 0 0 0 1px rgba(201,169,97,.06),
+    inset 0 0 160px rgba(0,0,0,.85),
+    inset 0 -120px 100px -60px rgba(0,0,0,.7);
 }
-/* 四角金箔 frame */
-#splash::before,#splash::after{
-  content:'';position:absolute;width:64px;height:64px;
-  border:1px solid rgba(201,169,97,.55);pointer-events:none;
-  box-shadow:0 0 24px -8px rgba(201,169,97,.45);
+/* 顶部两侧 hairline 装饰 — 不再用方框 */
+#splash::before{
+  content:'';position:absolute;top:36px;left:50%;
+  width:64px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:translateX(-50%);opacity:.7;
+  box-shadow:0 0 12px rgba(201,169,97,.4);
 }
-#splash::before{top:32px;left:32px;border-right:none;border-bottom:none}
-#splash::after{bottom:80px;right:32px;border-left:none;border-top:none}
+#splash::after{
+  content:'';position:absolute;bottom:88px;left:50%;
+  width:48px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:translateX(-50%);opacity:.5;
+}
 
 .splash-roman{
-  font-family:var(--cn);font-weight:300;
-  font-size:13px;letter-spacing:8px;color:var(--gold);
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:11px;letter-spacing:6px;color:var(--gold);
+  text-transform:uppercase;
   margin-bottom:32px;opacity:0;
   animation:fadeUp 1.4s var(--ease) .3s forwards;
-  text-shadow:0 0 16px rgba(201,169,97,.4);
+  text-shadow:0 0 14px rgba(201,169,97,.4);
 }
 .splash-mark{
   font-family:var(--serif);font-weight:500;
@@ -202,31 +213,41 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   color:var(--shade);letter-spacing:2px;
 }
 
-/* ============== Login · 编辑式 (v8) ============== */
+/* ============== Login · 编辑式 (v9) ============== */
 #login.page{
   background:
-    radial-gradient(ellipse at 50% 18%, rgba(201,169,97,.12) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 30%, #120A0A 0%, #050303 80%);
-  padding:80px 32px 56px;
+    radial-gradient(ellipse at 50% 16%, rgba(201,169,97,.14) 0%, transparent 42%),
+    radial-gradient(ellipse at 50% 32%, #120A0A 0%, #050303 80%);
+  padding:72px 36px 56px;
   display:flex;flex-direction:column;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
+  box-shadow:
+    inset 0 0 0 1px rgba(201,169,97,.06),
+    inset 0 0 180px rgba(0,0,0,.85),
+    inset 0 -100px 80px -40px rgba(0,0,0,.55);
 }
-/* 四角金箔 frame — 上面两个 + 下面两个 */
-#login::before,#login::after{
-  content:'';position:absolute;width:48px;height:48px;
-  border:1px solid rgba(201,169,97,.5);pointer-events:none;
-  box-shadow:0 0 16px -6px rgba(201,169,97,.35);
+/* 顶部 hairline + 底部 hairline 装饰 */
+#login::before{
+  content:'';position:absolute;top:32px;left:50%;
+  width:80px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:translateX(-50%);opacity:.65;
+  box-shadow:0 0 14px rgba(201,169,97,.45);
 }
-#login::before{top:24px;left:24px;border-right:none;border-bottom:none}
-#login::after{top:24px;right:24px;border-left:none;border-bottom:none}
+#login::after{
+  content:'';position:absolute;bottom:24px;left:50%;
+  width:56px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:translateX(-50%);opacity:.45;
+}
 /* 底部装饰光晕 */
 .login-aura{
-  position:absolute;left:50%;bottom:-120px;
-  width:300px;height:300px;
-  background:radial-gradient(circle, rgba(201,169,97,.18) 0%, transparent 60%);
+  position:absolute;left:50%;bottom:-160px;
+  width:360px;height:360px;
+  background:radial-gradient(circle, rgba(201,169,97,.15) 0%, transparent 60%);
   transform:translateX(-50%);pointer-events:none;
-  filter:blur(24px);
+  filter:blur(32px);
 }
 .login-roman{
   font-family:var(--cn);font-weight:300;font-size:13px;
@@ -250,19 +271,19 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 /* Logo 下中文副标 */
 .login-cn-mark{
   font-family:var(--cn);font-weight:300;
-  font-size:13px;letter-spacing:10px;
-  color:rgba(201,169,97,.75);text-align:center;
+  font-size:12px;letter-spacing:10px;
+  color:rgba(201,169,97,.7);text-align:center;
   margin-top:10px;padding-left:10px;
 }
 .login-tag{
   font-family:var(--cn);font-weight:300;font-size:13px;
-  color:var(--gold);text-align:center;letter-spacing:6px;
-  margin-bottom:6px;opacity:.85;
+  color:var(--gold);text-align:center;letter-spacing:5px;
+  margin-bottom:8px;opacity:.85;
 }
 .login-tag-en{
   font-family:var(--serif);font-style:italic;font-size:11px;
   color:var(--ash);text-align:center;letter-spacing:1.5px;
-  margin-bottom:56px;
+  margin-bottom:56px;opacity:.7;
 }
 /* 密码 reveal 按钮 */
 .pw-row{position:relative;display:flex;align-items:center}
@@ -288,28 +309,28 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 
 .mode-row{
   display:flex;justify-content:center;gap:0;
-  border-top:1px solid rgba(201,169,97,.25);
-  border-bottom:1px solid rgba(201,169,97,.25);
+  border-top:1px solid rgba(201,169,97,.18);
+  border-bottom:1px solid rgba(201,169,97,.18);
   margin-bottom:48px;position:relative;
 }
 .mode-row::before,.mode-row::after{
   content:'';position:absolute;left:50%;
-  width:6px;height:6px;background:var(--gold);
+  width:4px;height:4px;background:var(--gold);
   transform:translateX(-50%) rotate(45deg);
-  box-shadow:0 0 8px rgba(201,169,97,.6);
+  box-shadow:0 0 6px rgba(201,169,97,.5);
 }
-.mode-row::before{top:-3px}
-.mode-row::after{bottom:-3px}
+.mode-row::before{top:-2px}
+.mode-row::after{bottom:-2px}
 .mode-btn{
-  flex:1;padding:18px 0;
-  font-family:var(--serif);font-size:11px;font-weight:500;
-  letter-spacing:4px;text-transform:uppercase;
+  flex:1;padding:20px 0;
+  font-family:var(--cn);font-size:14px;font-weight:400;
+  letter-spacing:8px;
   color:var(--ash);
   position:relative;
-  transition:color 300ms var(--ease);
+  transition:all 400ms var(--ease);
 }
-.mode-btn+.mode-btn{border-left:1px solid rgba(201,169,97,.18)}
-.mode-btn.on{color:var(--gold);text-shadow:0 0 12px rgba(201,169,97,.4)}
+.mode-btn+.mode-btn{border-left:1px solid rgba(201,169,97,.14)}
+.mode-btn.on{color:var(--gold);letter-spacing:10px;text-shadow:0 0 14px rgba(201,169,97,.4)}
 .mode-btn.on::after{
   content:'';position:absolute;left:50%;bottom:-1px;
   width:32px;height:1px;background:var(--gold);
@@ -318,37 +339,31 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 }
 
 .field{margin-bottom:36px;position:relative}
-/* 左侧装饰短金线 */
-.field::before{
-  content:'';position:absolute;left:-12px;top:6px;
-  width:6px;height:1px;background:var(--gold);
-  opacity:.6;
-}
 .field-label{
-  font-family:var(--serif);font-style:italic;font-size:10px;
-  letter-spacing:2px;color:var(--gold);opacity:.7;
-  margin-bottom:14px;text-transform:uppercase;
+  font-family:var(--cn);font-weight:400;font-size:12px;
+  letter-spacing:6px;color:var(--gold);opacity:.85;
+  margin-bottom:14px;
   transition:all 300ms;
 }
-.field.focused .field-label{opacity:1;letter-spacing:3px}
+.field.focused .field-label{opacity:1;letter-spacing:8px}
 .field input{
   width:100%;font-family:var(--serif);font-size:22px;font-weight:400;
   color:var(--bone);padding:6px 0 14px;letter-spacing:.5px;
-  border-bottom:1px solid rgba(201,169,97,.3);
+  border-bottom:1px solid rgba(201,169,97,.22);
   transition:all 400ms var(--ease);
   background:transparent;
 }
 .field input:focus{
   border-bottom-color:var(--gold);
-  box-shadow:0 1px 0 rgba(201,169,97,.7),0 12px 32px -16px rgba(201,169,97,.4);
+  box-shadow:0 1px 0 rgba(201,169,97,.7),0 12px 32px -16px rgba(201,169,97,.35);
 }
-.field input::placeholder{color:rgba(201,169,97,.25);font-style:italic}
+.field input::placeholder{color:rgba(245,241,232,.18);font-style:italic;font-size:14px}
 
 .cta{
   display:block;width:100%;
   margin-top:48px;padding:22px 0;
-  font-family:var(--serif);font-size:11px;font-weight:500;
-  letter-spacing:7px;text-transform:uppercase;
+  font-family:var(--cn);font-size:14px;font-weight:400;
+  letter-spacing:8px;
   color:var(--gold);
   background:linear-gradient(180deg,rgba(201,169,97,.06) 0%,rgba(201,169,97,.02) 100%);
   border:1px solid var(--gold);
@@ -1077,42 +1092,41 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   <div class="pages">
     <!-- ─── Splash ─── -->
     <div id="splash" class="page active">
-      <div class="splash-roman">壹 · 序</div>
+      <div class="splash-roman">EST · MMXXVI</div>
       <div class="splash-mark">VELVET</div>
       <div class="splash-cn-mark">天 鹅 绒</div>
       <div class="splash-line"></div>
       <div class="splash-est">PRIVATE THINGS · QUIETLY EXCHANGED</div>
-      <div class="splash-cn">私 藏 · 流 转 · 懂 的 人 来</div>
+      <div class="splash-cn">私 藏 · 流 转</div>
       <div class="splash-status" id="api-status">CONNECTING</div>
     </div>
 
     <!-- ─── Login ─── -->
     <div id="login" class="page">
       <div class="login-aura"></div>
-      <div class="login-roman">壹 · 入 帘</div>
       <div class="login-mark">VELVET</div>
       <div class="login-cn-mark">天 鹅 绒</div>
       <div class="login-line"></div>
-      <div class="login-tag">触 此 物 · 知 此 心</div>
+      <div class="login-tag">懂 的 人 · 才 会 来</div>
       <div class="login-tag-en">Touch what was touched.</div>
 
       <div class="mode-row">
-        <button class="mode-btn on" id="mode-login" type="button">入 内 · SIGN IN</button>
-        <button class="mode-btn" id="mode-register" type="button">入 籍 · REGISTER</button>
+        <button class="mode-btn on" id="mode-login" type="button">登 录</button>
+        <button class="mode-btn" id="mode-register" type="button">注 册</button>
       </div>
 
       <div class="field" id="field-username">
-        <div class="field-label">名 帖 · USERNAME</div>
+        <div class="field-label">账 号</div>
         <input id="login-account" type="text" autocomplete="off" placeholder="字母 / 数字 / 下划线">
       </div>
 
       <div class="field" id="field-nickname" style="display:none">
-        <div class="field-label">雅 号 · NICKNAME</div>
+        <div class="field-label">昵 称</div>
         <input id="login-nickname" type="text" autocomplete="off" placeholder="别人看到的名字">
       </div>
 
       <div class="field field-password">
-        <div class="field-label">暗 语 · PASSWORD</div>
+        <div class="field-label">密 码</div>
         <div class="pw-row">
           <input id="login-password" type="password" autocomplete="off" placeholder="6 位以上 · 字母 + 数字">
           <button type="button" class="pw-eye" id="pw-eye" aria-label="显示密码">
@@ -1122,8 +1136,8 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
         </div>
       </div>
 
-      <button class="cta" id="login-cta" type="button">入 · ENTER VELVET</button>
-      <div class="legal">入此门 · 即默许私下交流之约<br><span style="opacity:.6">By entering, you agree to our private terms.</span></div>
+      <button class="cta" id="login-cta" type="button">进 入 VELVET</button>
+      <div class="legal">登录即代表同意 · 私集使用约定<br><span style="opacity:.5;font-size:10px">By entering, you agree to our private terms.</span></div>
     </div>
 
     <!-- ─── Feed ─── -->
@@ -1369,7 +1383,7 @@ function switchMode(mode) {
   document.getElementById('mode-login').classList.toggle('on', mode === 'login');
   document.getElementById('mode-register').classList.toggle('on', mode === 'register');
   document.getElementById('field-nickname').style.display = mode === 'register' ? 'block' : 'none';
-  document.getElementById('login-cta').textContent = mode === 'register' ? 'CREATE ACCOUNT' : 'ENTER VELVET';
+  document.getElementById('login-cta').textContent = mode === 'register' ? '创 建 账 号' : '进 入 VELVET';
 }
 
 async function doAuth() {
