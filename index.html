@@ -249,7 +249,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   opacity:0;animation:fadeUp 1.4s var(--ease) 1.5s forwards;
 }
 .splash-cn-mark{
-  font-family:var(--cn);font-weight:200;
+  font-family:var(--cn);font-weight:300;
   font-size:18px;letter-spacing:10px;
   color:rgba(201,169,97,.78);text-align:center;
   margin-top:20px;padding-left:10px;
@@ -384,7 +384,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 }
 /* Logo 下中文副标 */
 .login-cn-mark{
-  font-family:var(--cn);font-weight:200;
+  font-family:var(--cn);font-weight:300;
   font-size:var(--t-sm);
   letter-spacing:var(--ls-cn-display);
   color:var(--gold-70);text-align:center;
@@ -392,7 +392,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   text-shadow:0 0 14px rgba(201,169,97,.3);
 }
 .login-tag{
-  font-family:var(--cn);font-weight:200;
+  font-family:var(--cn);font-weight:300;
   font-size:var(--t-xl);
   color:var(--gold);text-align:center;
   letter-spacing:var(--ls-cn-heading);
@@ -414,7 +414,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .pw-row input{flex:1;padding-right:64px}
 .pw-eye{
   position:absolute;right:0;bottom:10px;
-  font-family:var(--cn);font-weight:200;font-size:var(--t-sm);
+  font-family:var(--cn);font-weight:300;font-size:var(--t-sm);
   color:var(--gold);background:var(--gold-08);
   border:1px solid var(--gold-50);
   padding:6px 14px;cursor:pointer;
@@ -447,7 +447,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   flex:1;
   display:flex;align-items:center;justify-content:center;
   height:60px;
-  font-family:var(--cn);font-weight:200;
+  font-family:var(--cn);font-weight:300;
   font-size:var(--t-md);
   letter-spacing:var(--ls-cn-button);
   text-indent:var(--ls-cn-button);
@@ -475,7 +475,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .field{margin-bottom:var(--sp-6);position:relative}
 .field-label{
   display:flex;align-items:baseline;gap:10px;
-  font-family:var(--cn);font-weight:200;
+  font-family:var(--cn);font-weight:300;
   font-size:var(--t-sm);
   letter-spacing:var(--ls-cn-label);
   color:var(--gold);opacity:.85;
@@ -506,7 +506,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 }
 .field input::placeholder{
   color:var(--gold-30);font-style:italic;
-  font-family:var(--cn);font-weight:200;
+  font-family:var(--cn);font-weight:300;
   font-size:var(--t-md);letter-spacing:0.06em;
 }
 
@@ -515,7 +515,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   display:flex;align-items:center;justify-content:center;
   width:100%;height:64px;
   margin-top:var(--sp-6);
-  font-family:var(--cn);font-weight:200;
+  font-family:var(--cn);font-weight:300;
   font-size:var(--t-md);
   letter-spacing:var(--ls-cn-button);
   text-indent:var(--ls-cn-button);
@@ -551,7 +551,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 
 .legal{
   margin-top:32px;text-align:center;
-  font-family:var(--cn);font-weight:200;font-size:13px;
+  font-family:var(--cn);font-weight:300;font-size:13px;
   color:var(--ash);letter-spacing:3px;line-height:1.9;opacity:.7;
   padding-left:3px;
 }
@@ -580,13 +580,14 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 }
 .header-spacer{flex:1}
 .header-link{
-  font-family:var(--serif);font-style:italic;font-size:11px;
-  color:var(--ash);letter-spacing:1.5px;
-  margin-left:24px;
+  font-family:var(--cn);font-weight:300;
+  font-size:13px;letter-spacing:3px;
+  color:var(--gold-70);
+  margin-left:18px;padding-left:3px;
   background:none;border:none;cursor:pointer;
-  transition:color 300ms;position:relative;
+  transition:all 300ms;position:relative;line-height:1;
 }
-.header-link:hover{color:var(--gold)}
+.header-link:hover,.header-link:active{color:var(--gold);text-shadow:0 0 12px rgba(201,169,97,.5)}
 .header-link.has-dot::after{
   content:'';position:absolute;top:-2px;right:-8px;
   width:5px;height:5px;background:var(--gold);
@@ -906,7 +907,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   margin-bottom:32px;
 }
 .comments-head .cn{
-  font-family:var(--cn);font-weight:200;font-size:15px;
+  font-family:var(--cn);font-weight:300;font-size:15px;
   color:var(--gold);letter-spacing:6px;padding-left:6px;
   text-shadow:0 0 14px rgba(201,169,97,.4);
 }
@@ -921,7 +922,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .comment-list{display:flex;flex-direction:column;gap:0;margin-bottom:32px}
 .comment-loading,.comment-empty{
   text-align:center;padding:32px 16px;
-  font-family:var(--cn);font-weight:200;font-size:14px;
+  font-family:var(--cn);font-weight:300;font-size:14px;
   color:var(--ash);letter-spacing:3px;line-height:1.9;
 }
 .comment-empty span{
@@ -938,7 +939,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   margin-bottom:10px;
 }
 .comment-meta .who{
-  font-family:var(--cn);font-weight:200;font-size:14px;
+  font-family:var(--cn);font-weight:300;font-size:14px;
   color:var(--gold);letter-spacing:2px;
   text-shadow:0 0 12px rgba(201,169,97,.3);
 }
@@ -951,7 +952,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   color:var(--shade);letter-spacing:1.5px;
 }
 .comment-body{
-  font-family:var(--cn);font-weight:200;font-size:15px;
+  font-family:var(--cn);font-weight:300;font-size:15px;
   color:var(--bone);line-height:1.85;letter-spacing:1px;
   padding-left:2px;
 }
@@ -963,7 +964,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 }
 .comment-compose textarea{
   width:100%;min-height:80px;
-  font-family:var(--cn);font-weight:200;font-size:14px;
+  font-family:var(--cn);font-weight:300;font-size:14px;
   color:var(--bone);background:transparent;
   border:none;outline:none;resize:none;
   letter-spacing:1px;line-height:1.7;
@@ -973,7 +974,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 }
 .comment-send{
   position:absolute;right:16px;bottom:14px;
-  font-family:var(--cn);font-weight:200;font-size:13px;
+  font-family:var(--cn);font-weight:300;font-size:13px;
   color:var(--gold);background:rgba(201,169,97,.06);
   border:1px solid var(--gold);
   padding:6px 16px;cursor:pointer;
@@ -1027,35 +1028,49 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 
 .detail-bottom{
   position:absolute;left:0;right:0;bottom:0;z-index:30;
-  padding:24px 32px calc(24px + env(safe-area-inset-bottom,0));
+  padding:24px 24px calc(24px + env(safe-area-inset-bottom,0));
   background:linear-gradient(180deg,transparent,var(--void) 30%);
-  display:flex;gap:0;
+  display:flex;gap:8px;
 }
 .detail-bottom .fav{
-  width:60px;
-  border:1px solid var(--gold);border-right:none;
-  background:transparent;color:var(--gold);
-  font-size:18px;
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;transition:all 300ms;
-}
-.detail-bottom .fav.faved{background:rgba(201,169,97,.1)}
-.detail-bottom .chat{
-  flex:1;
-  font-family:var(--serif);font-size:11px;font-weight:500;
-  letter-spacing:6px;text-transform:uppercase;
-  color:var(--gold);background:transparent;
+  width:56px;height:56px;
   border:1px solid var(--gold);
-  position:relative;cursor:pointer;
+  background:rgba(201,169,97,.04);color:var(--gold);
+  font-size:20px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all 300ms;flex-shrink:0;
+}
+.detail-bottom .fav.faved{background:var(--gold-15)}
+.detail-bottom .chat{
+  flex:1;height:56px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-md);
+  letter-spacing:var(--ls-cn-button);text-indent:var(--ls-cn-button);
+  color:var(--gold);
+  background:rgba(201,169,97,.04);
+  border:1px solid var(--gold-50);
+  cursor:pointer;line-height:1;
   transition:all 400ms var(--ease);
 }
-.detail-bottom .chat::before{
-  content:'';position:absolute;inset:0;background:var(--gold);
-  transform-origin:left;transform:scaleX(0);
-  transition:transform 400ms var(--ease);z-index:-1;
+.detail-bottom .chat:hover{background:var(--gold-15)}
+.detail-bottom .buy{
+  flex:1.4;height:56px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-md);
+  letter-spacing:var(--ls-cn-button);text-indent:var(--ls-cn-button);
+  color:var(--void);
+  background:linear-gradient(180deg,var(--gold-light) 0%,var(--gold) 50%,var(--gold-deep) 100%);
+  border:1px solid var(--gold);
+  position:relative;cursor:pointer;line-height:1;
+  transition:all 400ms var(--ease);
+  box-shadow:
+    0 0 32px -4px rgba(201,169,97,.55),
+    0 0 16px -2px rgba(201,169,97,.35);
 }
-.detail-bottom .chat:hover{color:var(--void)}
-.detail-bottom .chat:hover::before{transform:scaleX(1)}
+.detail-bottom .buy:hover{filter:brightness(1.15)}
+.detail-bottom .buy:active{transform:scale(.98)}
 
 /* ============== Notifications ============== */
 #notifications{background:var(--void)}
@@ -1098,36 +1113,61 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   color:var(--ash);margin-top:16px;line-height:1.7;
 }
 
-/* ============== Publish ============== */
-#publish{background:var(--void);display:flex;flex-direction:column}
+/* ============== Publish v16.1 ============== */
+#publish.page{
+  background:radial-gradient(ellipse at 50% 0%, #120A0A 0%, #050303 80%);
+  display:flex;flex-direction:column;
+}
 .pub-header{
-  padding:24px 32px;display:flex;align-items:center;
-  border-bottom:1px solid var(--edge);background:var(--void);
+  flex-shrink:0;
+  display:flex;align-items:center;
+  padding:24px 24px 20px;
+  border-bottom:1px solid var(--gold-30);
+  background:rgba(0,0,0,.6);
 }
 .pub-header .x{
-  font-family:var(--serif);font-style:italic;font-size:12px;
-  color:var(--ash);letter-spacing:2px;text-transform:uppercase;
-  background:none;border:none;cursor:pointer;
+  width:44px;height:44px;
+  font-family:var(--serif);font-size:22px;
+  color:var(--gold);background:none;border:none;cursor:pointer;
+  text-align:left;line-height:1;
 }
 .pub-header .title{
-  flex:1;text-align:center;
-  font-family:var(--serif);font-weight:500;font-size:14px;
-  color:var(--bone);letter-spacing:6px;text-transform:uppercase;
+  flex:1;text-align:center;padding-left:0.22em;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-md);
+  color:var(--gold);
+  letter-spacing:var(--ls-cn-heading);
+  text-shadow:0 0 14px rgba(201,169,97,.4);
 }
 .pub-header .submit{
-  font-family:var(--serif);font-size:11px;font-weight:500;
-  color:var(--gold);letter-spacing:3px;text-transform:uppercase;
-  background:none;border:none;cursor:pointer;
-  padding:6px 0;border-bottom:1px solid var(--gold);
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-sm);
+  color:var(--gold);background:var(--gold-08);
+  border:1px solid var(--gold);
+  padding:8px 14px;cursor:pointer;
+  letter-spacing:var(--ls-cn-button);text-indent:var(--ls-cn-button);
+  line-height:1;
+  box-shadow:0 0 16px -4px rgba(201,169,97,.4);
 }
+.pub-header .submit:hover{background:var(--gold);color:var(--void)}
 
-.pub-body{flex:1;overflow-y:auto;padding:48px 32px 80px}
+.pub-body{flex:1;overflow-y:auto;padding:32px 32px 96px}
 .pub-body::-webkit-scrollbar{display:none}
 
 .pub-section{
-  font-family:var(--serif);font-style:italic;font-size:10px;
-  color:var(--gold);letter-spacing:3px;text-transform:uppercase;
-  margin-bottom:16px;
+  display:flex;align-items:baseline;gap:10px;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-sm);
+  color:var(--gold);
+  letter-spacing:var(--ls-cn-label);
+  margin-bottom:var(--sp-3);
+  padding-left:0.16em;line-height:1;
+}
+.pub-section .en{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:var(--t-2xs);
+  letter-spacing:var(--ls-en-label);
+  opacity:.55;text-transform:uppercase;
 }
 
 .pub-grid{
@@ -1154,25 +1194,54 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 }
 
 .pub-input{
-  width:100%;font-family:var(--serif);font-size:24px;
-  color:var(--bone);padding:0 0 14px;letter-spacing:.5px;
-  border-bottom:1px solid var(--edge);margin-bottom:48px;
+  width:100%;
+  font-family:var(--serif);font-weight:400;
+  font-size:var(--t-lg);
+  color:var(--bone);padding:8px 2px 14px;
+  letter-spacing:0.02em;
+  border-bottom:1px solid var(--gold-30);
+  background:transparent;
+  margin-bottom:var(--sp-7);
+}
+.pub-input:focus{outline:none;border-bottom-color:var(--gold)}
+.pub-input::placeholder{
+  color:var(--gold-30);font-style:italic;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-md);
 }
 .pub-textarea{
-  width:100%;font-family:var(--serif);font-size:17px;font-style:italic;
-  color:var(--bone);padding:0 0 14px;line-height:1.7;
+  width:100%;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-md);
+  color:var(--bone);padding:8px 2px 14px;
+  line-height:var(--lh-relaxed);letter-spacing:0.04em;
   resize:none;min-height:140px;
-  border:none;border-bottom:1px solid var(--edge);
-  margin-bottom:48px;
+  border:none;border-bottom:1px solid var(--gold-30);
+  background:transparent;
+  margin-bottom:var(--sp-7);
+}
+.pub-textarea:focus{outline:none;border-bottom-color:var(--gold)}
+.pub-textarea::placeholder{
+  color:var(--gold-30);font-style:italic;
 }
 
 .pub-row{
   display:flex;align-items:center;justify-content:space-between;
-  padding:18px 0;border-bottom:1px solid var(--edge);
+  padding:20px 0;border-bottom:1px solid var(--gold-30);
 }
 .pub-row .lbl{
-  font-family:var(--serif);font-size:14px;color:var(--bone);
-  letter-spacing:.5px;
+  display:flex;align-items:baseline;gap:10px;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-md);
+  color:var(--gold);
+  letter-spacing:var(--ls-cn-label);
+  padding-left:0.16em;line-height:1;
+}
+.pub-row .lbl .en{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:var(--t-2xs);
+  letter-spacing:var(--ls-en-label);
+  opacity:.55;text-transform:uppercase;
 }
 .toggle{
   width:40px;height:22px;border:1px solid var(--edge);
@@ -1187,95 +1256,148 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .toggle.on .knob{transform:translateX(18px);background:var(--gold);box-shadow:0 0 8px rgba(201,169,97,.5)}
 
 .pub-price-row{
-  display:flex;align-items:baseline;gap:8px;
-  padding:12px 0;border-bottom:1px solid var(--edge);
-  margin-bottom:48px;
+  display:flex;align-items:baseline;gap:10px;
+  padding:14px 2px;border-bottom:1px solid var(--gold-30);
+  margin-bottom:var(--sp-3);
 }
 .pub-price-row .c{
-  font-family:var(--serif);font-size:18px;color:var(--gold-deep);
+  font-family:var(--serif);font-weight:400;
+  font-size:var(--t-xl);
+  color:var(--gold-deep);
 }
 .pub-price-row input{
-  flex:1;font-family:var(--serif);font-size:36px;font-weight:500;
-  color:var(--gold);letter-spacing:2px;
+  flex:1;
+  font-family:var(--serif);font-weight:500;
+  font-size:var(--t-3xl);
+  color:var(--gold);letter-spacing:0.04em;
+  background:transparent;
 }
+.pub-price-row input:focus{outline:none}
+.pub-fee{
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin-bottom:var(--sp-7);padding:0 2px;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-xs);
+  color:var(--ash);letter-spacing:0.08em;
+}
+.pub-fee .right{color:var(--gold);font-weight:300}
 
 .pub-tags{
-  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px;
+  display:flex;flex-wrap:wrap;gap:10px;margin-bottom:var(--sp-7);
 }
 .pub-tag{
-  font-family:var(--serif);font-style:italic;font-size:11px;
-  color:var(--ash);letter-spacing:1px;
-  padding:8px 16px;border:1px solid var(--edge);
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-sm);
+  color:var(--ash);letter-spacing:0.06em;
+  padding:10px 16px;border:1px solid var(--gold-30);
   cursor:pointer;transition:all 200ms;
+  line-height:1;
 }
-.pub-tag.selected{color:var(--gold);border-color:var(--gold);background:rgba(201,169,97,.06)}
+.pub-tag.selected{
+  color:var(--gold);border-color:var(--gold);
+  background:var(--gold-08);
+  box-shadow:0 0 12px -4px rgba(201,169,97,.4);
+}
 
 .pub-tip{
-  padding:24px;border:1px solid var(--edge);
-  font-family:var(--serif);font-style:italic;font-size:12px;
-  color:var(--ash);line-height:1.8;letter-spacing:.5px;
+  padding:var(--sp-5);
+  border:1px solid var(--gold-30);
+  background:var(--gold-04);
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-sm);
+  color:var(--ash);
+  line-height:var(--lh-relaxed);letter-spacing:0.06em;
   text-align:center;
 }
 .pub-tip::before{
-  content:'§';font-family:var(--serif);font-size:18px;
-  color:var(--gold);display:block;margin-bottom:8px;
+  content:'§';font-family:var(--serif);font-size:var(--t-xl);
+  color:var(--gold);display:block;margin-bottom:8px;line-height:1;
 }
 
 /* ============== Profile ============== */
 #profile{background:var(--void)}
 .profile-content{padding:120px 32px 120px;text-align:center}
 .profile-roman{
-  font-family:var(--serif);font-style:italic;font-size:11px;
-  color:var(--gold);letter-spacing:4px;text-transform:uppercase;
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:var(--t-sm);
+  color:var(--gold);letter-spacing:var(--ls-en-label);
+  text-transform:uppercase;
 }
 .profile-name{
-  font-family:var(--serif);font-weight:500;font-size:48px;
-  color:var(--bone);letter-spacing:6px;
-  margin-top:12px;
-  background:linear-gradient(180deg,#F5F1E8 0%,#C9A961 80%);
+  font-family:var(--serif);font-weight:500;
+  font-size:var(--t-3xl);
+  letter-spacing:0.18em;
+  margin-top:var(--sp-3);
+  background:linear-gradient(180deg,#FAF4E6 0%,#E8C879 30%,#C9A961 60%,#8C7536 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
+  filter:drop-shadow(0 0 32px rgba(201,169,97,.35));
+  line-height:1;padding-left:0.18em;
 }
 .profile-handle{
-  font-family:var(--serif);font-style:italic;font-size:13px;
-  color:var(--ash);letter-spacing:1.5px;margin-top:8px;
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:var(--t-md);
+  color:var(--ash);letter-spacing:var(--ls-en-label);
+  margin-top:var(--sp-3);
 }
 .profile-line{
-  width:48px;height:1px;background:var(--gold);
-  margin:32px auto;
+  width:56px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:var(--sp-6) auto;position:relative;
+}
+.profile-line::before{
+  content:'';position:absolute;top:50%;left:50%;
+  width:5px;height:5px;background:var(--gold);
+  transform:translate(-50%,-50%) rotate(45deg);
+  box-shadow:0 0 10px rgba(201,169,97,.6);
 }
 .profile-bio{
-  font-family:var(--serif);font-style:italic;font-size:15px;
-  color:var(--ash);letter-spacing:.5px;line-height:1.8;
-  max-width:300px;margin:0 auto 48px;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-md);
+  color:var(--bone);letter-spacing:var(--ls-cn-body);
+  line-height:var(--lh-relaxed);
+  max-width:320px;margin:0 auto var(--sp-7);
+  font-style:italic;
 }
 .profile-stats{
-  display:flex;justify-content:center;gap:48px;
-  padding:32px 0;border-top:1px solid var(--edge);border-bottom:1px solid var(--edge);
-  margin-bottom:48px;
+  display:flex;justify-content:center;gap:var(--sp-7);
+  padding:var(--sp-6) 0;
+  border-top:1px solid var(--gold-30);
+  border-bottom:1px solid var(--gold-30);
+  margin-bottom:var(--sp-7);
 }
+.profile-stats .stat{display:flex;flex-direction:column;align-items:center;gap:8px}
 .profile-stats .stat .v{
-  font-family:var(--serif);font-weight:500;font-size:28px;
-  color:var(--gold);letter-spacing:1px;
+  font-family:var(--serif);font-weight:500;
+  font-size:var(--t-2xl);
+  color:var(--gold);letter-spacing:0.06em;
+  line-height:1;
+  text-shadow:0 0 18px rgba(201,169,97,.4);
 }
 .profile-stats .stat .l{
-  font-family:var(--serif);font-style:italic;font-size:10px;
-  color:var(--ash);letter-spacing:2px;text-transform:uppercase;
-  margin-top:6px;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-xs);
+  color:var(--ash);letter-spacing:var(--ls-cn-label);
+  padding-left:0.16em;
 }
-.profile-actions{display:flex;flex-direction:column;gap:12px}
+.profile-actions{display:flex;flex-direction:column;gap:var(--sp-3)}
 .profile-actions .edit,.profile-actions .out{
-  font-family:var(--serif);font-size:11px;font-weight:500;
-  letter-spacing:4px;text-transform:uppercase;
-  padding:18px 0;cursor:pointer;
-  background:none;
+  font-family:var(--cn);font-weight:300;
+  font-size:var(--t-md);
+  letter-spacing:var(--ls-cn-button);text-indent:var(--ls-cn-button);
+  padding:var(--sp-5) 0;cursor:pointer;
+  background:var(--gold-08);
   border:1px solid var(--gold);
   color:var(--gold);
-  transition:all 300ms;
+  transition:all 300ms;line-height:1;
+  box-shadow:0 0 24px -8px rgba(201,169,97,.3);
 }
 .profile-actions .edit:hover{background:var(--gold);color:var(--void)}
-.profile-actions .out{border-color:var(--edge);color:var(--ash)}
-.profile-actions .out:hover{border-color:var(--ash);color:var(--bone)}
+.profile-actions .out{
+  background:none;border-color:var(--gold-30);color:var(--ash);
+  box-shadow:none;
+}
+.profile-actions .out:hover{border-color:var(--gold);color:var(--gold)}
 
 /* ============== Toast ============== */
 #toast{
@@ -1376,7 +1498,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   -webkit-appearance:none;appearance:none;border-radius:0;
 }
 .search-input::placeholder{
-  font-family:var(--cn);font-weight:200;font-style:italic;font-size:14px;
+  font-family:var(--cn);font-weight:300;font-style:italic;font-size:14px;
   color:rgba(201,169,97,.4);letter-spacing:3px;
 }
 .search-input:focus{outline:none;border-color:var(--gold)}
@@ -1390,7 +1512,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
 }
 .search-empty-cn{
-  font-family:var(--cn);font-weight:200;font-size:14px;
+  font-family:var(--cn);font-weight:300;font-size:14px;
   color:var(--gold);letter-spacing:5px;opacity:.85;
   padding-left:5px;
 }
@@ -1435,7 +1557,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .chats-list{padding:96px 0 80px}
 .chats-loading,.chats-empty{
   text-align:center;padding:80px 32px;
-  font-family:var(--cn);font-weight:200;font-size:14px;
+  font-family:var(--cn);font-weight:300;font-size:14px;
   color:var(--ash);letter-spacing:5px;
 }
 .chats-empty .em-line{
@@ -1477,7 +1599,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 }
 .chat-row .last{
   margin-top:6px;
-  font-family:var(--cn);font-weight:200;font-size:13px;
+  font-family:var(--cn);font-weight:300;font-size:13px;
   color:var(--ash);letter-spacing:.5px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
@@ -1514,7 +1636,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   box-shadow:0 0 18px -6px rgba(201,169,97,.3);
 }
 .bubble .text{
-  font-family:var(--cn);font-weight:200;font-size:15px;
+  font-family:var(--cn);font-weight:300;font-size:15px;
   color:var(--bone);line-height:1.6;letter-spacing:1px;
 }
 .bubble .time{
@@ -1533,7 +1655,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   background:rgba(201,169,97,.04);
   border:1px solid rgba(201,169,97,.25);
   padding:0 16px;
-  font-family:var(--cn);font-weight:200;font-size:15px;
+  font-family:var(--cn);font-weight:300;font-size:15px;
   color:var(--bone);letter-spacing:1px;
 }
 .chat-input::placeholder{color:rgba(201,169,97,.35);font-style:italic}
@@ -1542,7 +1664,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   width:56px;height:48px;
   background:rgba(201,169,97,.06);
   border:1px solid var(--gold);
-  font-family:var(--cn);font-weight:200;font-size:16px;
+  font-family:var(--cn);font-weight:300;font-size:16px;
   color:var(--gold);cursor:pointer;
   box-shadow:0 0 18px -6px rgba(201,169,97,.4);
 }
@@ -1579,7 +1701,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
 }
 .user-bio{
-  font-family:var(--cn);font-weight:200;font-size:14px;
+  font-family:var(--cn);font-weight:300;font-size:14px;
   color:var(--ash);letter-spacing:2px;line-height:1.85;
   font-style:italic;
 }
@@ -1600,7 +1722,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 .user-actions{display:flex;gap:12px;margin-bottom:48px}
 .user-actions .btn{
   flex:1;height:52px;
-  font-family:var(--cn);font-weight:200;font-size:15px;
+  font-family:var(--cn);font-weight:300;font-size:15px;
   letter-spacing:6px;padding-left:6px;
   background:rgba(201,169,97,.06);
   border:1px solid var(--gold);
@@ -1616,7 +1738,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
 }
 .user-pieces-title{
   display:flex;align-items:center;gap:12px;
-  font-family:var(--cn);font-weight:200;font-size:15px;
+  font-family:var(--cn);font-weight:300;font-size:15px;
   color:var(--gold);letter-spacing:5px;
   margin-bottom:20px;text-align:left;padding-left:5px;
 }
@@ -1801,10 +1923,11 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
           <div class="header-mark">VELVET</div>
           <div class="header-est">N° 001</div>
           <div class="header-spacer"></div>
-          <button class="header-link" id="search-link">寻 · Search</button>
-          <button class="header-link" id="chats-link">私 · Notes</button>
-          <button class="header-link has-dot" id="notif-link">音 · Notice</button>
-          <button class="header-link" id="profile-link">我 · Me</button>
+          <button class="header-link" id="search-link">寻 找</button>
+          <button class="header-link" id="publish-top-link">发 布</button>
+          <button class="header-link" id="chats-link">私 语</button>
+          <button class="header-link has-dot" id="notif-link">通 知</button>
+          <button class="header-link" id="profile-link">我 的</button>
         </div>
         <div class="header-line"></div>
       </div>
@@ -1833,7 +1956,8 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
       </div>
       <div class="detail-bottom">
         <button class="fav" id="detail-fav" onclick="toggleFav()">♡</button>
-        <button class="chat" id="detail-inquiry" onclick="sendInquiry()">私 下 聊 聊</button>
+        <button class="chat" id="detail-inquiry" onclick="sendInquiry()">问 一 问</button>
+        <button class="buy" id="detail-buy" onclick="placeOrder()">立 即 拍 下</button>
       </div>
     </div>
 
@@ -1842,7 +1966,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
       <div class="header">
         <div class="header-row">
           <div class="header-mark">VELVET</div>
-          <div class="header-est">NOTICE</div>
+          <div class="header-est">通 知</div>
           <div class="header-spacer"></div>
           <button class="header-link" onclick="goPage('feed')">返 回</button>
         </div>
@@ -1856,37 +1980,41 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
     <!-- ─── Publish ─── -->
     <div id="publish" class="page">
       <div class="pub-header">
-        <button class="x" onclick="goPage('feed')">CLOSE</button>
-        <div class="title">PUBLISH</div>
-        <button class="submit" id="pub-submit-btn">SUBMIT</button>
+        <button class="x" onclick="goPage('feed')">×</button>
+        <div class="title">上 架 一 件</div>
+        <button class="submit" id="pub-submit-btn">立 即 上 架</button>
       </div>
       <div class="pub-body">
-        <div class="pub-section">PHOTOGRAPHS</div>
+        <div class="pub-section">图 片 <span class="en">Photos</span></div>
         <div class="pub-grid" id="pub-grid"></div>
 
-        <div class="pub-section">TITLE</div>
+        <div class="pub-section">标 题 <span class="en">Title</span></div>
         <input class="pub-input" id="pub-title" placeholder="一句话说明白" maxlength="32">
 
-        <div class="pub-section">DESCRIPTION</div>
-        <textarea class="pub-textarea" id="pub-content" placeholder="细细说说这件好物的故事…" maxlength="2000"></textarea>
+        <div class="pub-section">详 细 描 述 <span class="en">Description</span></div>
+        <textarea class="pub-textarea" id="pub-content" placeholder="说说这件好物的故事…" maxlength="2000"></textarea>
 
         <div class="pub-row">
-          <div class="lbl">Listed Price</div>
+          <div class="lbl">是 否 出 售 <span class="en">For Sale</span></div>
           <div class="toggle on" id="toggle-price"><div class="knob"></div></div>
         </div>
 
         <div id="pub-price-section">
-          <div class="pub-section" style="margin-top:32px">EXPECTED PRICE</div>
+          <div class="pub-section" style="margin-top:var(--sp-6)">价 格 <span class="en">Price</span></div>
           <div class="pub-price-row">
             <div class="c">¥</div>
             <input id="pub-price" type="number" placeholder="0">
           </div>
+          <div class="pub-fee">
+            <span>平台手续费 5% · 担保交易</span>
+            <span class="right" id="pub-fee-amt">— —</span>
+          </div>
         </div>
 
-        <div class="pub-section" style="margin-top:24px">TAGS</div>
+        <div class="pub-section" style="margin-top:var(--sp-5)">标 签 <span class="en">Tags</span></div>
         <div class="pub-tags" id="pub-tags"></div>
 
-        <div class="pub-tip">VELVET is merely a stage. Pricing and exchange happen between you and the other party — privately.</div>
+        <div class="pub-tip">买家在平台付款 · 平台担保 · 卖家发货后放款<br>禁止私下交易 · 禁止留下任何第三方联系方式</div>
       </div>
     </div>
 
@@ -1895,7 +2023,7 @@ img{display:block;max-width:100%;-webkit-user-drag:none}
       <div class="header">
         <div class="header-row">
           <div class="header-mark">VELVET</div>
-          <div class="header-est">ACCOUNT</div>
+          <div class="header-est">我 的</div>
           <div class="header-spacer"></div>
           <button class="header-link" onclick="goPage('feed')">返 回</button>
         </div>
@@ -2232,7 +2360,7 @@ function renderFeed() {
       <div class="meta-row">
         <span class="num">N° ${String(idx + 1).padStart(3, '0')}</span>
         <span class="dot"></span>
-        <span>${escapeHtml(item.location || 'PRIVATE')}</span>
+        <span>${escapeHtml(item.location || '未 知')}</span>
         <span class="dot"></span>
         <span>${formatPubDate(item.createdAt)}</span>
       </div>
@@ -2343,7 +2471,7 @@ function renderDetail(item) {
       <img src="${cover}" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fallback${item.id}/900/1200'">
     </div>
     <div class="detail-body">
-      <div class="detail-roman">N° ${String(item.id).padStart(3, '0')} · ${escapeHtml(item.location || 'PRIVATE')} · ${formatPubDate(item.createdAt)}</div>
+      <div class="detail-roman">N° ${String(item.id).padStart(3, '0')} · ${escapeHtml(item.location || '未 知')} · ${formatPubDate(item.createdAt)}</div>
       <h1 class="detail-title">${escapeHtml(item.title || '无题')}</h1>
       <div class="detail-line"></div>
       ${item.hasItem && item.itemPriceCents ? `<div class="detail-price"><span class="currency">¥</span>${(item.itemPriceCents/100).toFixed(0)}</div>` : ''}
@@ -2448,6 +2576,52 @@ async function toggleFav() {
   } catch(e) { showToast(e.message); }
 }
 
+async function placeOrder() {
+  if (!state.currentMoment) return;
+  if (!state.token) { showToast('请先登录'); return; }
+  const m = state.currentMoment;
+  if (!m.hasItem || !m.itemPriceCents) {
+    showToast('此动态未挂售'); return;
+  }
+  if (m.userId === state.user?.id) {
+    showToast('不能购买自己的物品'); return;
+  }
+  const price = (m.itemPriceCents / 100).toFixed(0);
+  const fee = Math.round(m.itemPriceCents * 0.05) / 100;
+  const total = (m.itemPriceCents / 100 + fee).toFixed(0);
+  if (!confirm(`确认拍下「${m.title || '此件'}」？\n\n商品价 ¥${price}\n手续费 ¥${fee.toFixed(0)} (5%)\n应付  ¥${total}\n\n点击确认进入付款页`)) return;
+  showLoading('下单中');
+  try {
+    const order = await api('/api/v1/orders', {
+      method: 'POST',
+      body: JSON.stringify({momentId: m.id}),
+    });
+    hideLoading();
+    showToast('订单已创建');
+    // 立即调起付款（MOCK 模式直接成功）
+    setTimeout(() => mockPayOrder(order.id), 600);
+  } catch(e) {
+    hideLoading();
+    showToast(e.message);
+  }
+}
+
+async function mockPayOrder(orderId) {
+  showLoading('付款中');
+  try {
+    await api(`/api/v1/orders/${orderId}/pay`, {
+      method: 'POST',
+      body: JSON.stringify({paymentMethod: 'MOCK'}),
+    });
+    hideLoading();
+    showToast('付款成功 · 等卖家发货', 3000);
+    // 跳到我的订单（如果有），暂时停在 detail
+  } catch(e) {
+    hideLoading();
+    showToast(e.message);
+  }
+}
+
 async function sendInquiry() {
   if (!state.currentMoment) return;
   if (!state.token) { showToast('请先登录'); return; }
@@ -2471,8 +2645,8 @@ async function sendInquiry() {
     document.getElementById('chat-title').textContent = sellerName;
     document.getElementById('chat-messages').innerHTML = `
       <div style="text-align:center;padding:60px 24px">
-        <div style="font-family:var(--cn);font-weight:200;font-size:14px;color:var(--gold);letter-spacing:5px;margin-bottom:16px;opacity:.85">第 一 句 · 由 你 写 下</div>
-        <div style="font-family:var(--cn);font-weight:200;font-size:12px;color:var(--shade);letter-spacing:2px;line-height:1.8">关于「${escapeHtml(state.currentMoment.title || '这件')}」</div>
+        <div style="font-family:var(--cn);font-weight:300;font-size:14px;color:var(--gold);letter-spacing:5px;margin-bottom:16px;opacity:.85">第 一 句 · 由 你 写 下</div>
+        <div style="font-family:var(--cn);font-weight:300;font-size:12px;color:var(--shade);letter-spacing:2px;line-height:1.8">关于「${escapeHtml(state.currentMoment.title || '这件')}」</div>
       </div>`;
     goPage('chat');
   } catch(e) {
@@ -2612,7 +2786,7 @@ async function loadNotifications() {
 function renderNotifications() {
   const list = document.getElementById('notif-list');
   if (state.notifications.length === 0) {
-    list.innerHTML = '<div class="notif-empty"><div class="roman">SILENCE</div><div class="text">No one has reached out yet.<br>Publish a piece, and they will.</div></div>';
+    list.innerHTML = '<div class="notif-empty"><div class="roman">— 暂 无 通 知 —</div><div class="text">还没有人来敲你的门<br>发一件好物 · 自会有人来</div></div>';
     return;
   }
   list.innerHTML = '';
@@ -2928,7 +3102,7 @@ async function startChatWith(otherUserId, nickname) {
     };
     document.getElementById('chat-title').textContent = nickname;
     document.getElementById('chat-messages').innerHTML = `
-      <div style="text-align:center;padding:40px 0;font-family:var(--cn);font-weight:200;font-size:13px;color:var(--shade);letter-spacing:3px">
+      <div style="text-align:center;padding:40px 0;font-family:var(--cn);font-weight:300;font-size:13px;color:var(--shade);letter-spacing:3px">
         — 第 一 句 · 由 你 写 下 —
       </div>`;
     goPage('chat');
@@ -3089,6 +3263,7 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('notif-link')?.addEventListener('click', () => { goPage('notifications'); loadNotifications(); });
   document.getElementById('profile-link')?.addEventListener('click', () => { goPage('profile'); loadProfile(); });
   document.getElementById('publish-link')?.addEventListener('click', () => goPage('publish'));
+  document.getElementById('publish-top-link')?.addEventListener('click', () => goPage('publish'));
   document.getElementById('logout-btn')?.addEventListener('click', () => { disconnectWS(); doLogout(); });
   document.getElementById('my-pieces-btn')?.addEventListener('click', viewMyPieces);
   document.getElementById('edit-profile-btn')?.addEventListener('click', openProfileEdit);
@@ -3142,6 +3317,17 @@ window.addEventListener('DOMContentLoaded', () => {
     state.pubPrice = !state.pubPrice;
     document.getElementById('toggle-price').classList.toggle('on', state.pubPrice);
     document.getElementById('pub-price-section').style.display = state.pubPrice ? 'block' : 'none';
+  });
+  // 实时计算平台手续费 + 卖家到手金额
+  document.getElementById('pub-price')?.addEventListener('input', e => {
+    const v = parseInt(e.target.value) || 0;
+    if (v > 0) {
+      const fee = Math.round(v * 0.05);
+      const net = v - fee;
+      document.getElementById('pub-fee-amt').textContent = `卖家到手 ¥${net}（手续费 ¥${fee}）`;
+    } else {
+      document.getElementById('pub-fee-amt').textContent = '— —';
+    }
   });
 
   // 输入框 focus 状态
